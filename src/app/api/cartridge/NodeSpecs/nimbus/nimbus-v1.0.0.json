@@ -1,0 +1,188 @@
+{
+  "specId": "nimbus-beacon",
+  "version": "1.0.0",
+  "displayName": "Nimbus",
+  "execution": {
+    "executionTypes": ["docker", "binary"],
+    "defaultExecutionType": "docker",
+    "imageName": "docker.io/statusim/nimbus-eth2",
+    "defaultImageTag": "multiarch-latest",
+    "input": {
+      "defaultConfig": {
+        "http": "Enabled",
+        "httpPort": "5052",
+        "httpHostAddress": "0.0.0.0",
+        "httpCorsDomains": "http://localhost",
+        "executionEndpoint": "http://host.containers.internal",
+        "network": "Mainnet"
+      },
+      "docker": {
+        "containerVolumePath": "/home/user/data",
+        "raw": " --user 0",
+        "forcedRawNodeInput": "--data-dir=/home/user/data --jwt-secret=/home/user/data/jwtsecret"
+      }
+    },
+    "binaryDownload": {
+      "type": "githubReleases",
+      "latestVersionUrl": "https://api.github.com/repos/status-im/nimbus-eth2/releases/latest",
+      "responseFormat": "githubReleases"
+    }
+  },
+  "category": "L1/ConsensusClient/BeaconNode",
+  "minorityClient": true,
+  "rpcTranslation": "eth-l1-beacon",
+  "systemRequirements": {
+    "memory": {
+      "minSizeGBs": 4
+    },
+    "storage": {
+      "minSizeGBs": 200,
+      "ssdRequired": true
+    },
+    "internet": {
+      "minDownloadSpeedMbps": 8,
+      "minUploadSpeedMbps": 8
+    },
+    "docker": {
+      "required": true
+    }
+  },
+  "configTranslation": {
+    "dataDir": {
+      "displayName": "The directory where nimbus will store all blockchain data.",
+      "cliConfigPrefix": "--data-dir=",
+      "uiControl": {
+        "type": "filePath"
+      },
+      "infoDescription": "Nimbus root directory",
+      "documentation": "https://nimbus.guide/options.html"
+    },
+    "network": {
+      "displayName": "Network",
+      "cliConfigPrefix": "--network=",
+      "defaultValue": "Mainnet",
+      "hideFromUserAfterStart": true,
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Mainnet",
+            "config": "mainnet"
+          },
+          {
+            "value": "Holesky",
+            "config": "holesky"
+          },
+          {
+            "value": "Sepolia",
+            "config": "sepolia"
+          }
+        ]
+      }
+    },
+    "p2pPortsTcp": {
+      "displayName": "P2P listening port (TCP)",
+      "cliConfigPrefix": "--tcp-port=",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Example value: 9000",
+      "defaultValue": "9000",
+      "documentation": "https://nimbus.guide/options.html"
+    },
+    "p2pPortsUdp": {
+      "displayName": "P2P discovery port (UDP)",
+      "cliConfigPrefix": "--udp-port=",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Example value: 9000",
+      "defaultValue": "9000",
+      "documentation": "https://nimbus.guide/options.html"
+    },
+    "http": {
+      "displayName": "RPC HTTP connections",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled",
+            "config": "--rest"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
+      },
+      "infoDescription": "NiceNode requires http connections",
+      "defaultValue": "Enabled"
+    },
+    "httpPort": {
+      "displayName": "HTTP-RPC server listening port",
+      "cliConfigPrefix": "--rest-port=",
+      "defaultValue": "5052",
+      "uiControl": {
+        "type": "text"
+      }
+    },
+    "httpCorsDomains": {
+      "displayName": "HTTP-RPC CORS domains",
+      "cliConfigPrefix": "--rest-allow-origin=",
+      "defaultValue": "http://localhost",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Limit the access to the REST API to a particular hostname (for CORS-enabled clients such as browsers) Use comma separated URLs."
+    },
+    "httpHostAddress": {
+      "displayName": "REST server listening address",
+      "cliConfigPrefix": "--rest-address=",
+      "defaultValue": "127.0.0.1",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Limit the access to the REST API to a particular hostname (for CORS-enabled clients such as browsers)."
+    },
+    "executionEndpoint": {
+      "displayName": "Local execution Engine RPC-JSON API URL",
+      "cliConfigPrefix": "--web3-url=",
+      "defaultValue": "http://host.containers.internal:8551",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Informs the beacon node how to connect to the execution client - both http:// and ws:// URLs are supported.",
+      "documentation": "https://nimbus.guide/eth1.html#3-pass-the-url-and-jwt-secret-to-nimbus"
+    },
+    "maxPeerCount": {
+      "displayName": "Max Peer Count",
+      "cliConfigPrefix": "--max-peers=",
+      "defaultValue": "160",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Set to lower number to use less bandwidth"
+    }
+  },
+  "documentation": {
+    "default": "https://nimbus.guide/",
+    "docker": "https://nimbus.guide/docker.html"
+  },
+  "iconUrl": "https://clientdiversity.org/assets/img/consensus-clients/nimbus-logo-text.png",
+  "resources": [
+    {
+      "label": "Twitter",
+      "value": "@ethnimbus",
+      "link": "https://x.com/ethnimbus"
+    },
+    {
+      "label": "Discord",
+      "value": "Join",
+      "link": "https://discord.com/invite/XRxWahP"
+    },
+    {
+      "label": "Website",
+      "value": "nimbus.team",
+      "link": "https://nimbus.team/"
+    }
+  ]
+}

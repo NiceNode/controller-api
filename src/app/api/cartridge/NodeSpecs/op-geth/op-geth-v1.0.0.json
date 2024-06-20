@@ -1,0 +1,302 @@
+{
+  "specId": "op-geth",
+  "version": "1.0.0",
+  "displayName": "OP Geth",
+  "displayTaglin": "Execution Client - OP Chains",
+  "execution": {
+    "executionTypes": ["docker"],
+    "defaultExecutionType": "docker",
+    "input": {
+      "defaultConfig": {
+        "http": "Enabled",
+        "httpPort": "8547",
+        "webSocketsPort": "8548",
+        "enginePort": "8553",
+        "p2pPorts": "39393",
+        "httpCorsDomains": "http://localhost",
+        "webSockets": "Disabled",
+        "httpVirtualHosts": "localhost,host.containers.internal",
+        "authVirtualHosts": "localhost,host.containers.internal"
+      },
+      "docker": {
+        "containerVolumePath": "/root/.ethereum",
+        "raw": "",
+        "forcedRawNodeInput": "--http.addr 0.0.0.0 --authrpc.addr 0.0.0.0 --authrpc.jwtsecret /root/.ethereum/jwtsecret --ipcdisable"
+      }
+    },
+    "imageName": "us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth",
+    "defaultImageTag": "v1.101315.2"
+  },
+  "category": "L2/ExecutionClient",
+  "rpcTranslation": "eth-l2",
+  "systemRequirements": {
+    "documentationUrl": "https://geth.ethereum.org/docs/interface/hardware",
+    "cpu": {
+      "cores": 4
+    },
+    "memory": {
+      "minSizeGBs": 8
+    },
+    "storage": {
+      "minSizeGBs": 30,
+      "ssdRequired": true
+    },
+    "docker": {
+      "required": true
+    }
+  },
+  "configTranslation": {
+    "dataDir": {
+      "displayName": "Data location",
+      "cliConfigPrefix": "--datadir ",
+      "defaultValue": "~/.ethereum",
+      "uiControl": {
+        "type": "filePath"
+      },
+      "infoDescription": "Data directory for the databases and keystore (default: \"~/.ethereum\")"
+    },
+    "network": {
+      "displayName": "Network",
+      "defaultValue": "Mainnet",
+      "hideFromUserAfterStart": true,
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Mainnet",
+            "config": "--mainnet"
+          },
+          {
+            "value": "Sepolia",
+            "config": "--sepolia"
+          }
+        ]
+      }
+    },
+    "chainId": {
+      "displayName": "Chain ID (Network)",
+      "cliConfigPrefix": "--op-network=",
+      "hideFromUserAfterStart": true,
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "10",
+            "config": "op-mainnet"
+          },
+          {
+            "value": "11155420",
+            "config": "op-sepolia"
+          },
+          {
+            "value": "8453",
+            "config": "base-mainnet"
+          },
+          {
+            "value": "84532",
+            "config": "base-sepolia"
+          }
+        ]
+      },
+      "documentation": "https://docs.optimism.io/builders/node-operators/management/configuration#op-network-betaop-network"
+    },
+    "http": {
+      "displayName": "rpc http connections (*NiceNode requires http connections)",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled",
+            "config": "--http"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
+      },
+      "defaultValue": "Disabled",
+      "documentation": "https://geth.ethereum.org/docs/rpc/server"
+    },
+    "webSockets": {
+      "displayName": "rpc websocket connections (*BeaconNodes may require websocket connections)",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled",
+            "config": "--ws"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
+      },
+      "defaultValue": "Disabled",
+      "documentation": "https://geth.ethereum.org/docs/rpc/server#websocket-server"
+    },
+    "p2pPorts": {
+      "displayName": "P2P port (UDP and TCP)",
+      "cliConfigPrefix": "--discovery.port ",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Example value: 39393",
+      "defaultValue": "39393"
+    },
+    "httpApis": {
+      "displayName": "Enabled HTTP APIs",
+      "cliConfigPrefix": "--http.api ",
+      "defaultValue": ["eth", "net", "web3"],
+      "valuesJoinStr": ",",
+      "uiControl": {
+        "type": "select/multiple",
+        "controlTranslations": [
+          {
+            "value": "eth",
+            "config": "eth"
+          },
+          {
+            "value": "net",
+            "config": "net"
+          },
+          {
+            "value": "web3",
+            "config": "web3"
+          },
+          {
+            "value": "debug",
+            "config": "debug"
+          },
+
+          {
+            "value": "personal",
+            "config": "personal"
+          },
+          {
+            "value": "admin",
+            "config": "admin"
+          }
+        ]
+      }
+    },
+    "httpCorsDomains": {
+      "displayName": "Change where the node accepts http connections (use comma separated urls)",
+      "cliConfigPrefix": "--http.corsdomain ",
+      "uiControl": {
+        "type": "text"
+      }
+    },
+    "syncMode": {
+      "displayName": "Node synchronization mode",
+      "infoDescription": "Blockchain sync mode (\"snap\", \"full\") (default: snap)",
+      "category": "Syncronization",
+      "cliConfigPrefix": "--syncmode ",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "snap",
+            "config": "snap"
+          },
+          {
+            "value": "full",
+            "config": "full"
+          }
+        ]
+      },
+      "defaultValue": "snap",
+      "documentation": "https://geth.ethereum.org/docs/faq#how-does-ethereum-syncing-work"
+    },
+    "httpVirtualHosts": {
+      "displayName": "Comma separated list of virtual hostnames from which to accept requests (server enforced). Accepts '*' wildcard. Default value (localhost)",
+      "cliConfigPrefix": "--http.vhosts ",
+      "uiControl": {
+        "type": "text"
+      },
+      "defaultValue": "localhost,host.containers.internal"
+    },
+    "httpAddress": {
+      "displayName": "HTTP-RPC server listening interface",
+      "cliConfigPrefix": "--http.addr ",
+      "defaultValue": "0.0.0.0",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://geth.ethereum.org/docs/rpc/server#http-server"
+    },
+    "httpPort": {
+      "displayName": "HTTP-RPC server listening port",
+      "cliConfigPrefix": "--http.port ",
+      "defaultValue": "8547",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://geth.ethereum.org/docs/rpc/server#http-server"
+    },
+    "enginePort": {
+      "displayName": "Engine JSON-RPC listening port",
+      "cliConfigPrefix": "--authrpc.port ",
+      "defaultValue": "8553",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "The listening port for the Engine API calls for JSON-RPC over HTTP and WebSocket."
+    },
+    "webSocketsPort": {
+      "displayName": "WS-RPC server listening port",
+      "cliConfigPrefix": "--ws.port ",
+      "defaultValue": "8548",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://geth.ethereum.org/docs/rpc/server#websocket-server"
+    },
+    "maxPeerCount": {
+      "displayName": "Max Peer Count (set to low number to use less bandwidth)",
+      "cliConfigPrefix": "--maxpeers ",
+      "defaultValue": "50",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://geth.ethereum.org/docs/interface/peer-to-peer#peer-limit"
+    },
+    "authVirtualHosts": {
+      "displayName": "Comma separated list of virtual hostnames from which to accept authentication requests for engine api's (server enforced). Accepts '*' wildcard. Default value (localhost)",
+      "cliConfigPrefix": "--authrpc.vhosts ",
+      "uiControl": {
+        "type": "text"
+      },
+      "defaultValue": "localhost,host.containers.internal"
+    },
+    "rollupSequencerHttpEndpoint": {
+      "displayName": "HTTP endpoint for the sequencer mempool (Ex. for base: https://mainnet-sequencer.base.org)",
+      "cliConfigPrefix": "--rollup.sequencerhttp ",
+      "uiControl": {
+        "type": "text"
+      }
+    }
+  },
+  "iconUrl": "https://clientdiversity.org/assets/img/execution-clients/geth-logo.png",
+  "resources": [
+    {
+      "label": "Website",
+      "value": "optimism.io",
+      "link": "https://optimism.io/"
+    },
+    {
+      "label": "Node Configuration Documentation",
+      "value": "docs.optimism.io",
+      "link": "https://docs.optimism.io/builders/node-operators/management/configuration"
+    },
+    {
+      "label": "Block explorer",
+      "value": "etherscan.io",
+      "link": "https://optimistic.etherscan.io/"
+    },
+    {
+      "label": "X (Twitter)",
+      "value": "x.com",
+      "link": "https://x.com/optimismFND"
+    }
+  ]
+}

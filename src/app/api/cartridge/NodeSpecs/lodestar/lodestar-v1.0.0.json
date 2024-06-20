@@ -1,0 +1,181 @@
+{
+  "specId": "lodestar-beacon",
+  "version": "1.0.0",
+  "displayName": "Lodestar",
+  "execution": {
+    "executionTypes": ["docker"],
+    "defaultExecutionType": "docker",
+    "imageName": "docker.io/chainsafe/lodestar",
+    "defaultImageTag": "latest",
+    "input": {
+      "defaultConfig": {
+        "http": "Enabled",
+        "httpPort": "5052",
+        "httpHostAddress": "0.0.0.0",
+        "executionEndpoint": "http://host.containers.internal",
+        "network": "Mainnet"
+      },
+      "docker": {
+        "containerVolumePath": "/usr/app/data",
+        "raw": "",
+        "forcedRawNodeInput": "beacon --dataDir /usr/app/data --jwt-secret /usr/app/data/jwtsecret"
+      }
+    }
+  },
+  "category": "L1/ConsensusClient/BeaconNode",
+  "minorityClient": true,
+  "rpcTranslation": "eth-l1-beacon",
+  "systemRequirements": {
+    "documentationUrl": "https://chainsafe.github.io/lodestar/#specifications",
+    "cpu": {
+      "cores": 4
+    },
+    "memory": {
+      "minSizeGBs": 4
+    },
+    "storage": {
+      "minSizeGBs": 20,
+      "ssdRequired": true
+    },
+    "internet": {
+      "minDownloadSpeedMbps": 10,
+      "minUploadSpeedMbps": 10
+    },
+    "docker": {
+      "required": true
+    }
+  },
+  "configTranslation": {
+    "dataDir": {
+      "displayName": "Data location",
+      "cliConfigPrefix": "--rootDir ",
+      "uiControl": {
+        "type": "filePath"
+      },
+      "infoDescription": "Lodestar root directory"
+    },
+    "network": {
+      "displayName": "Network",
+      "cliConfigPrefix": "--network ",
+      "defaultValue": "Mainnet",
+      "hideFromUserAfterStart": true,
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Mainnet",
+            "config": "mainnet --checkpointSyncUrl https://beaconstate-mainnet.chainsafe.io"
+          },
+          {
+            "value": "Holesky",
+            "config": "holesky"
+          },
+          {
+            "value": "Sepolia",
+            "config": "sepolia"
+          }
+        ]
+      }
+    },
+    "checkpointSyncUrl": {
+      "displayName": "Trusted checkpoint sync URL",
+      "cliConfigPrefix": "--checkpointSyncUrl ",
+      "uiControl": {
+        "type": "text"
+      }
+    },
+    "http": {
+      "displayName": "RPC HTTP connections",
+      "cliConfigPrefix": "--rest ",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled",
+            "config": "true"
+          },
+          {
+            "value": "Disabled",
+            "config": "false"
+          }
+        ]
+      },
+      "infoDescription": "NiceNode requires http connections",
+      "defaultValue": "Disabled"
+    },
+    "p2pPorts": {
+      "displayName": "P2P port (UDP and TCP)",
+      "cliConfigPrefix": "--port ",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Example value: 9000",
+      "defaultValue": "9000"
+    },
+    "httpHostAddress": {
+      "displayName": "REST server listening address",
+      "cliConfigPrefix": "--rest.address ",
+      "defaultValue": "0.0.0.0",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Limit the access to the REST API to a particular hostname (for CORS-enabled clients such as browsers)."
+    },
+    "httpPort": {
+      "displayName": "HTTP-RPC server listening port",
+      "cliConfigPrefix": "--rest.port ",
+      "defaultValue": "9596",
+      "uiControl": {
+        "type": "text"
+      }
+    },
+    "httpCorsDomains": {
+      "displayName": "HTTP-RPC CORS domains",
+      "cliConfigPrefix": "--rest.cors ",
+      "defaultValue": "\"*\"",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Change where the node accepts http connections (use comma separated urls)"
+    },
+    "executionEndpoint": {
+      "displayName": "Local execution Engine RPC-JSON API URL",
+      "cliConfigPrefix": "--execution.urls ",
+      "defaultValue": "http://localhost:8551",
+      "uiControl": {
+        "type": "text"
+      }
+    },
+    "maxPeerCount": {
+      "displayName": "Max Peer Count",
+      "cliConfigPrefix": "--network.maxPeers ",
+      "defaultValue": "55",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Set to lower number to use less bandwidth"
+    }
+  },
+  "documentation": {
+    "default": "https://chainsafe.github.io/lodestar/",
+    "docker": "https://chainsafe.github.io/lodestar/installation/#install-with-docker"
+  },
+  "iconUrl": "https://clientdiversity.org/assets/img/consensus-clients/lodestar-logo-text.png",
+  "resources": [
+    {
+      "label": "Twitter",
+      "value": "@lodestar_eth",
+      "link": "https://x.com/lodestar_eth"
+    },
+    {
+      "label": "Discord",
+      "value": "Join",
+      "link": "https://discord.com/invite/xSAwrnCWcg"
+    },
+    {
+      "label": "Website",
+      "value": "lodestar.chainsafe.io",
+      "link": "https://lodestar.chainsafe.io/"
+    }
+  ]
+}

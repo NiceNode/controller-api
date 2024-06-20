@@ -1,0 +1,331 @@
+{
+  "specId": "nethermind",
+  "version": "1.0.0",
+  "displayName": "Nethermind",
+  "execution": {
+    "executionTypes": ["docker"],
+    "defaultExecutionType": "docker",
+    "input": {
+      "defaultConfig": {
+        "http": "Enabled",
+        "webSockets": "Enabled",
+        "syncMode": "snap",
+        "webSocketsPort": "8546",
+        "enginePort": "8551"
+      },
+      "docker": {
+        "raw": "",
+        "containerVolumePath": "/nethermind/data",
+        "forcedRawNodeInput": "--datadir /nethermind/data --JsonRpc.Host 0.0.0.0 --JsonRpc.EngineHost 0.0.0.0 --JsonRpc.JwtSecretFile=/nethermind/data/jwtsecret"
+      }
+    },
+    "architectures": {
+      "docker": ["amd64", "arm64"],
+      "binary": ["amd64", "arm64"]
+    },
+    "imageName": "docker.io/nethermind/nethermind",
+    "defaultImageTag": "latest",
+    "binaryDownload": {
+      "type": "githubReleases",
+      "latestVersionUrl": "https://api.github.com/repos/NethermindEth/nethermind/releases/latest",
+      "responseFormat": "githubReleases"
+    },
+    "execPath": "Nethermind.Runner.exe"
+  },
+  "category": "L1/ExecutionClient",
+  "minorityClient": true,
+  "rpcTranslation": "eth-l1",
+  "systemRequirements": {
+    "documentationUrl": "https://docs.nethermind.io/nethermind/guides-and-helpers/validator-setup/eth2-validator#hardware-and-network-requirements",
+    "cpu": {
+      "cores": 4,
+      "minSpeedGHz": 2.4
+    },
+    "memory": {
+      "minSizeGBs": 16
+    },
+    "storage": {
+      "minSizeGBs": 900,
+      "ssdRequired": true
+    },
+    "internet": {
+      "minDownloadSpeedMbps": 10,
+      "minUploadSpeedMbps": 10
+    },
+    "docker": {
+      "required": true
+    }
+  },
+  "configTranslation": {
+    "dataDir": {
+      "displayName": "Data location",
+      "category": "Storage",
+      "cliConfigPrefix": "--datadir ",
+      "uiControl": {
+        "type": "filePath"
+      }
+    },
+    "network": {
+      "displayName": "Network",
+      "cliConfigPrefix": "--config ",
+      "defaultValue": "Mainnet",
+      "hideFromUserAfterStart": true,
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Mainnet",
+            "config": "mainnet"
+          },
+          {
+            "value": "Holesky",
+            "config": "holesky"
+          },
+          {
+            "value": "Sepolia",
+            "config": "sepolia"
+          }
+        ]
+      },
+      "documentation": "https://docs.nethermind.io/fundamentals/configuration#basic-options"
+    },
+    "chainId": {
+      "displayName": "Chain ID (Network)",
+      "cliConfigPrefix": "--config ",
+      "hideFromUserAfterStart": true,
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "1",
+            "config": "mainnet"
+          },
+          {
+            "value": "17000",
+            "config": "holesky"
+          },
+          {
+            "value": "11155111",
+            "config": "sepolia"
+          },
+          {
+            "value": "10",
+            "config": "op-mainnet"
+          },
+          {
+            "value": "11155420",
+            "config": "op-sepolia"
+          },
+          {
+            "value": "8453",
+            "config": "base-mainnet"
+          }
+        ]
+      }
+    },
+    "http": {
+      "displayName": "RPC HTTP connections",
+      "category": "RPC APIs",
+      "cliConfigPrefix": "--JsonRpc.Enabled ",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled",
+            "config": "true"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
+      },
+      "infoDescription": "NiceNode requires http connections",
+      "defaultValue": "Enabled",
+      "documentation": "https://docs.nethermind.io/nethermind/ethereum-client/json-rpc"
+    },
+    "webSockets": {
+      "displayName": "WebSocket JSON-RPC connections",
+      "category": "RPC APIs",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled",
+            "config": ""
+          },
+          {
+            "value": "Disabled",
+            "config": "--Init.WebSocketsEnabled false"
+          }
+        ]
+      },
+      "defaultValue": "Enabled",
+      "documentation": "https://docs.nethermind.io/interacting/json-rpc-server/#websocket"
+    },
+    "p2pPorts": {
+      "displayName": "P2P port (UDP and TCP)",
+      "cliConfigPrefix": ["--Network.P2PPort ", "--Network.DiscoveryPort "],
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Example value: 30303",
+      "defaultValue": "30303",
+      "documentation": "https://docs.nethermind.io/nethermind/ethereum-client/configuration/network"
+    },
+    "enginePort": {
+      "displayName": "Engine JSON-RPC listening port",
+      "cliConfigPrefix": "--JsonRpc.EnginePort ",
+      "defaultValue": "8551",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Ensure the firewall is configured when enabling JSON RPC.",
+      "documentation": "https://docs.nethermind.io/nethermind/ethereum-client/configuration/jsonrpc"
+    },
+    "httpPort": {
+      "displayName": "HTTP-RPC server listening port",
+      "cliConfigPrefix": "--JsonRpc.Port ",
+      "defaultValue": "8545",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://docs.nethermind.io/nethermind/ethereum-client/json-rpc"
+    },
+    "httpApis": {
+      "displayName": "Enabled HTTP APIs",
+      "category": "RPC APIs",
+      "cliConfigPrefix": "--JsonRpc.EnabledModules ",
+      "valuesJoinStr": ",",
+      "uiControl": {
+        "type": "select/multiple",
+        "controlTranslations": [
+          {
+            "value": "Eth",
+            "config": "Eth"
+          },
+          {
+            "value": "Subscribe",
+            "config": "Subscribe"
+          },
+          {
+            "value": "Trace",
+            "config": "Trace"
+          },
+          {
+            "value": "TxPool",
+            "config": "TxPool"
+          },
+          {
+            "value": "Web3",
+            "config": "Web3"
+          },
+
+          {
+            "value": "Personal",
+            "config": "Personal"
+          },
+          {
+            "value": "Proof",
+            "config": "Proof"
+          },
+          {
+            "value": "Net",
+            "config": "Net"
+          },
+          {
+            "value": "Parity",
+            "config": "Parity"
+          },
+          {
+            "value": "Health",
+            "config": "Health"
+          }
+        ]
+      },
+      "defaultValue": [
+        "Eth",
+        "Subscribe",
+        "Trace",
+        "TxPool",
+        "Web3",
+        "Personal",
+        "Proof",
+        "Net",
+        "Parity",
+        "Health"
+      ],
+      "documentation": "https://docs.nethermind.io/nethermind/ethereum-client/json-rpc"
+    },
+    "syncMode": {
+      "displayName": "Execution Client Sync Mode",
+      "category": "Syncronization",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "snap",
+            "config": "--Sync.SnapSync true",
+            "info": "~500GB / 11h"
+          },
+          {
+            "value": "fast",
+            "config": "--Sync.FastSync true",
+            "info": "~500GB / 11h"
+          },
+          {
+            "value": "archive",
+            "config": "--config mainnet_archive",
+            "info": "~12TB / 3w"
+          }
+        ]
+      },
+      "addNodeFlow": "required",
+      "defaultValue": "snap",
+      "hideFromUserAfterStart": true,
+      "documentation": "https://docs.nethermind.io/nethermind/ethereum-client/sync-modes"
+    },
+    "webSocketsPort": {
+      "displayName": "WebSockets JSON-RPC port",
+      "cliConfigPrefix": "--JsonRpc.WebSocketsPort ",
+      "defaultValue": "8546",
+      "niceNodeDefaultValue": "8546",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://docs.nethermind.io/nethermind/ethereum-client/configuration/jsonrpc",
+      "infoDescription": "Port number for JSON RPC web sockets calls. By default same port is used as regular HTTP JSON RPC. Ensure the firewall is configured when enabling JSON RPC."
+    },
+    "maxPeerCount": {
+      "displayName": "Max Peer Count",
+      "cliConfigPrefix": "--Network.ActivePeersMaxCount ",
+      "defaultValue": "50",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Set to lower number to use less bandwidth",
+      "documentation": "https://docs.nethermind.io/nethermind/ethereum-client/configuration/network"
+    }
+  },
+  "documentation": {
+    "default": "https://docs.nethermind.io/nethermind/",
+    "docker": "https://docs.nethermind.io/nethermind/ethereum-client/docker"
+  },
+  "iconUrl": "https://clientdiversity.org/assets/img/execution-clients/nethermind-logo.png",
+  "resources": [
+    {
+      "label": "Twitter",
+      "value": "@NethermindEth",
+      "link": "https://x.com/NethermindEth"
+    },
+    {
+      "label": "Discord",
+      "value": "Join",
+      "link": "https://discord.com/invite/PaCMRFdvWT"
+    },
+    {
+      "label": "Website",
+      "value": "nethermind.io",
+      "link": "https://www.nethermind.io/"
+    }
+  ]
+}

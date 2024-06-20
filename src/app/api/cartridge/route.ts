@@ -1,11 +1,13 @@
 export const dynamic = 'force-dynamic'; // static by default, unless reading the request
 
-import cartridgePackageLibrary from './library';
+// import cartridgeLibrary from './library';
+import { specs as cartridgeLibrary } from './librarySpecs';
+
 
 // available on local at http://localhost:3000/api/cartridgeLibrary
 export function GET(request: Request) {
   const jsonResponse = Response.json({
-    data: cartridgePackageLibrary,
+    data: cartridgeLibrary,
   });
   return jsonResponse;
 }

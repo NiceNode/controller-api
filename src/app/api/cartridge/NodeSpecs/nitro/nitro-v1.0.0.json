@@ -1,0 +1,223 @@
+{
+  "specId": "nitro",
+  "version": "1.0.0",
+  "displayName": "Arbitrum Nitro",
+  "execution": {
+    "executionTypes": ["docker"],
+    "defaultExecutionType": "docker",
+    "imageName": "docker.io/offchainlabs/nitro-node",
+    "defaultImageTag": "v3.0.2-9efbc16",
+    "input": {
+      "defaultConfig": {
+        "parentChainRpcUrl": "",
+        "parentChainBeaconRpcUrl": "",
+        "initUrl": "https://snapshot.arbitrum.foundation/arb1/nitro-pruned.tar",
+        "l2ChainId": "42161",
+        "httpAddress": "0.0.0.0",
+        "httpPort": "8547",
+        "httpCorsDomains": "http://localhost",
+        "httpVirtualHosts": "localhost,host.containers.internal",
+        "logLevel": "Info"
+      },
+      "docker": {
+        "containerVolumePath": "/home/user/.arbitrum",
+        "raw": "",
+        "forcedRawNodeInput": ""
+      }
+    },
+    "dependencies": ["L1/ExecutionClient"]
+  },
+  "category": "Ethereum/L2",
+  "rpcTranslation": "eth-l2",
+  "systemRequirements": {
+    "documentationUrl": "https://docs.arbitrum.io/node-running/how-tos/running-a-full-node#minimum-hardware-configuration",
+    "cpu": {
+      "cores": 4
+    },
+    "memory": {
+      "minSizeGBs": 8
+    },
+    "storage": {
+      "minSizeGBs": 1600,
+      "ssdRequired": true
+    },
+    "internet": {
+      "minDownloadSpeedMbps": 25,
+      "minUploadSpeedMbps": 10
+    },
+    "docker": {
+      "required": true
+    }
+  },
+  "configTranslation": {
+    "parentChainRpcUrl": {
+      "displayName": "Ethereum Mainnet RPC Endpoint",
+      "cliConfigPrefix": "--parent-chain.connection.url=",
+      "defaultValue": "",
+      "uiControl": {
+        "type": "text"
+      },
+      "addNodeFlow": "required",
+      "infoDescription": "Local node http://host.containers.internal:8545 or provider. Parent chain endpoint"
+    },
+    "parentChainBeaconRpcUrl": {
+      "displayName": "Ethereum Mainnet Beacon RPC Endpoint",
+      "cliConfigPrefix": "--parent-chain.blob-client.beacon-url=",
+      "defaultValue": "",
+      "uiControl": {
+        "type": "text"
+      },
+      "addNodeFlow": "required",
+      "infoDescription": "Provider with historical blob API enabled or a local node http://host.containers.internal:5052. Parent chain Beacon endpoint"
+    },
+    "initUrl": {
+      "displayName": "Network snapshot data URL",
+      "cliConfigPrefix": "--init.url=",
+      "defaultValue": "https://snapshot.arbitrum.foundation/arb1/nitro-pruned.tar",
+      "uiControl": {
+        "type": "text"
+      },
+      "addNodeFlow": "advanced",
+      "infoDescription": "Ex: Arb1 https://snapshot.arbitrum.foundation/arb1/nitro-pruned.tar or Sepolia https://snapshot.arbitrum.foundation/sepolia/nitro-pruned.tar",
+      "documentation": "https://docs.arbitrum.io/node-running/how-tos/running-a-full-node#prerequisites"
+    },
+    "l2ChainId": {
+      "displayName": "Arbitrum L2 Chain ID",
+      "cliConfigPrefix": "--chain.id=",
+      "defaultValue": "42161",
+      "uiControl": {
+        "type": "text"
+      },
+      "addNodeFlow": "advanced",
+      "documentation": "https://docs.arbitrum.io/node-running/node-providers#rpc-endpoints"
+    },
+    "httpAddress": {
+      "displayName": "HTTP-RPC server listening interface",
+      "cliConfigPrefix": "--http.addr=",
+      "defaultValue": "0.0.0.0",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://geth.ethereum.org/docs/rpc/server#http-server"
+    },
+    "httpPort": {
+      "displayName": "HTTP-RPC server listening port",
+      "cliConfigPrefix": "--http.port=",
+      "defaultValue": "8547",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://geth.ethereum.org/docs/rpc/server#http-server"
+    },
+    "httpVirtualHosts": {
+      "displayName": "HTTP RPC virtual hostnames list",
+      "cliConfigPrefix": "--http.vhosts=",
+      "defaultValue": "localhost,host.containers.internal",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Comma separated list of virtual hostnames from which to accept authentication requests for engine api's (server enforced). Accepts '*' wildcard. Default value (localhost)"
+    },
+    "websockets": {
+      "displayName": "rpc websocket connections (*BeaconNodes may require websocket connections)",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled",
+            "config": "--ws"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
+      },
+      "defaultValue": "Disabled"
+    },
+    "logLevel": {
+      "displayName": "Log level",
+      "cliConfigPrefix": "--log-level=",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Info",
+            "config": "3"
+          },
+          {
+            "value": "Warn",
+            "config": "2"
+          },
+          {
+            "value": "Error",
+            "config": "1"
+          },
+          {
+            "value": "Trace",
+            "config": "5"
+          },
+          {
+            "value": "Debug",
+            "config": "4"
+          },
+          {
+            "value": "Fatal",
+            "config": "0"
+          }
+        ]
+      },
+      "addNodeFlow": "advanced",
+      "defaultValue": "Info"
+    },
+    "httpApis": {
+      "displayName": "Enabled HTTP APIs",
+      "cliConfigPrefix": "--http.api=",
+      "defaultValue": "eth,net,web3,debug",
+      "valuesJoinStr": ",",
+      "uiControl": {
+        "type": "select/multiple",
+        "controlTranslations": [
+          {
+            "value": "eth",
+            "config": "Eth"
+          },
+          {
+            "value": "net",
+            "config": "Net"
+          },
+          {
+            "value": "web3",
+            "config": "Web3"
+          },
+          {
+            "value": "debug",
+            "config": "Debug"
+          },
+
+          {
+            "value": "personal",
+            "config": "Personal"
+          },
+          {
+            "value": "admin",
+            "config": "Admin"
+          }
+        ]
+      }
+    },
+    "httpCorsDomains": {
+      "displayName": "HTTP-RPC CORS domains",
+      "cliConfigPrefix": "--http.corsdomain=",
+      "defaultValue": "*",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Change where the node accepts http connections (use comma separated urls)"
+    }
+  },
+  "documentation": {
+    "default": "https://arbitrum.io/",
+    "docker": "https://developer.offchainlabs.com/docs/running_node"
+  },
+  "iconUrl": "https://arbitrum.io/wp-content/uploads/2021/08/Arbitrum_Symbol-Full-color-White-background-937x1024.png"
+}

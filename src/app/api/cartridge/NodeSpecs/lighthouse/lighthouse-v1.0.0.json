@@ -1,0 +1,222 @@
+{
+  "specId": "lighthouse-beacon",
+  "version": "1.0.0",
+  "displayName": "Lighthouse",
+  "execution": {
+    "executionTypes": ["docker", "binary"],
+    "defaultExecutionType": "docker",
+    "input": {
+      "defaultConfig": {
+        "http": "Enabled",
+        "httpHostAddress": "0.0.0.0",
+        "httpCorsDomains": "http://localhost",
+        "websockets": "Enabled",
+        "executionEndpoint": "http://host.containers.internal",
+        "network": "Mainnet",
+        "quicPort": "Enabled",
+        "quicPortUdp": "9001"
+      },
+      "docker": {
+        "containerVolumePath": "/root/.lighthouse",
+        "raw": "",
+        "forcedRawNodeInput": "lighthouse beacon --execution-jwt /root/.lighthouse/jwtsecret"
+      }
+    },
+    "architectures": {
+      "docker": ["amd64", "arm64"]
+    },
+    "imageName": "docker.io/sigp/lighthouse",
+    "defaultImageTag": "latest-modern",
+    "binaryDownload": {
+      "type": "githubReleases",
+      "latestVersionUrl": "https://api.github.com/repos/sigp/lighthouse/releases/latest",
+      "excludeNameWith": "portable",
+      "responseFormat": "githubReleases"
+    }
+  },
+  "category": "L1/ConsensusClient/BeaconNode",
+  "rpcTranslation": "eth-l1-beacon",
+  "systemRequirements": {
+    "documentationUrl": "https://lighthouse-book.sigmaprime.io/system-requirements.html",
+    "cpu": {
+      "cores": 2
+    },
+    "memory": {
+      "minSizeGBs": 8
+    },
+    "storage": {
+      "minSizeGBs": 128,
+      "ssdRequired": true
+    },
+    "internet": {
+      "minDownloadSpeedMbps": 10,
+      "minUploadSpeedMbps": 5
+    },
+    "docker": {
+      "required": true
+    }
+  },
+  "configTranslation": {
+    "dataDir": {
+      "displayName": "Data location",
+      "cliConfigPrefix": "--datadir ",
+      "uiControl": {
+        "type": "filePath"
+      },
+      "infoDescription": "Used to specify a custom root data directory for lighthouse keys and databases. Defaults to $HOME/.lighthouse/{network} where network is the value of the `network` flag Note: Users should specify separate custom datadirs for different networks.",
+      "documentation": "https://lighthouse-book.sigmaprime.io/advanced-datadir.html?highlight=--datadir#relative-paths"
+    },
+    "network": {
+      "displayName": "Network",
+      "cliConfigPrefix": "--network ",
+      "defaultValue": "Mainnet",
+      "hideFromUserAfterStart": true,
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Mainnet",
+            "config": "mainnet --checkpoint-sync-url https://mainnet.checkpoint.sigp.io"
+          },
+          {
+            "value": "Holesky",
+            "config": "holesky"
+          },
+          {
+            "value": "Sepolia",
+            "config": "sepolia"
+          }
+        ]
+      }
+    },
+    "checkpointSyncUrl": {
+      "displayName": "Trusted checkpoint sync URL",
+      "cliConfigPrefix": "--checkpoint-sync-url ",
+      "uiControl": {
+        "type": "text"
+      }
+    },
+    "http": {
+      "displayName": "RPC HTTP connections",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled",
+            "config": "--http"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
+      },
+      "defaultValue": "Disabled",
+      "infoDescription": "NiceNode requires http connections",
+      "documentation": "https://lighthouse-book.sigmaprime.io/api-bn.html#starting-the-server"
+    },
+    "quicPort": {
+      "displayName": "QUIC Connections",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled"
+          },
+          {
+            "value": "Disabled",
+            "config": "--disable-quic"
+          }
+        ]
+      },
+      "defaultValue": "Enabled",
+      "documentation": "https://lighthouse-blog.sigmaprime.io/Quic.html"
+    },
+    "quicPortUdp": {
+      "displayName": "QUIC port (UDP)",
+      "cliConfigPrefix": ["--quic-port ", "--quic-port6 "],
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Example value: 9001",
+      "defaultValue": "9001",
+      "documentation": "https://lighthouse-blog.sigmaprime.io/Quic.html"
+    },
+    "p2pPorts": {
+      "displayName": "P2P port (UDP and TCP)",
+      "cliConfigPrefix": "--port ",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Example value: 9000",
+      "defaultValue": "9000",
+      "documentation": "https://lighthouse-book.sigmaprime.io/faq.html?highlight=9000#how-to-change-the-tcpudp-port-9000-that-lighthouse-listens-on"
+    },
+    "httpHostAddress": {
+      "displayName": "REST server listening address",
+      "cliConfigPrefix": "--http-address ",
+      "defaultValue": "127.0.0.1",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Limit the access to the REST API to a particular hostname (for CORS-enabled clients such as browsers)."
+    },
+    "httpPort": {
+      "displayName": "HTTP-RPC server listening port",
+      "cliConfigPrefix": "--http-port ",
+      "defaultValue": "5052",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://lighthouse-book.sigmaprime.io/api-bn.html#starting-the-server"
+    },
+    "httpCorsDomains": {
+      "displayName": "HTTP-RPC CORS domains",
+      "cliConfigPrefix": "--http-allow-origin ",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Set the value of the Access-Control-Allow-Origin response HTTP header (use comma separated urls) Use * to allow any origin (not recommended in production). If no value is supplied, the CORS allowed origin is set to the listen address of this server (e.g., http://localhost:5052)",
+      "documentation": "https://lighthouse-book.sigmaprime.io/api-bn.html#starting-the-server"
+    },
+    "executionEndpoint": {
+      "displayName": "Local execution Engine RPC-JSON API URL",
+      "cliConfigPrefix": "--execution-endpoint ",
+      "defaultValue": "http://host.containers.internal:8551",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://lighthouse-book.sigmaprime.io/run_a_node.html#step-3-set-up-a-beacon-node-using-lighthouse"
+    },
+    "maxPeerCount": {
+      "displayName": "Max Peer Count",
+      "cliConfigPrefix": "--target-peers ",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Set to lower number to use less bandwidth",
+      "documentation": "https://lighthouse-book.sigmaprime.io/advanced_networking.html#target-peers"
+    }
+  },
+  "documentation": {
+    "default": "https://lighthouse-book.sigmaprime.io/intro.html",
+    "docker": "https://lighthouse-book.sigmaprime.io/docker.html"
+  },
+  "iconUrl": "https://clientdiversity.org/assets/img/consensus-clients/lighthouse-logo.png",
+  "resources": [
+    {
+      "label": "Twitter",
+      "value": "@sigp_io",
+      "link": "https://x.com/sigp_io"
+    },
+    {
+      "label": "Discord",
+      "value": "Join",
+      "link": "https://discord.gg/TX7HKfgJN3"
+    },
+    {
+      "label": "Website",
+      "value": "lighthouse.sigmaprime.io",
+      "link": "https://lighthouse.sigmaprime.io/"
+    }
+  ]
+}

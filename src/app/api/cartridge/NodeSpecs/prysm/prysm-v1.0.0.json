@@ -1,0 +1,172 @@
+{
+  "specId": "prysm-beacon",
+  "version": "1.0.0",
+  "displayName": "Prysm",
+  "execution": {
+    "executionTypes": ["docker"],
+    "defaultExecutionType": "docker",
+    "imageName": "gcr.io/prysmaticlabs/prysm/beacon-chain",
+    "defaultImageTag": "stable",
+    "input": {
+      "defaultConfig": {
+        "http": "Enabled",
+        "httpPort": "3500",
+        "httpHostAddress": "0.0.0.0",
+        "httpCorsDomains": "\"http://localhost\"",
+        "executionEndpoint": "http://host.containers.internal",
+        "network": "Mainnet"
+      },
+      "docker": {
+        "containerVolumePath": "/data",
+        "raw": "",
+        "forcedRawNodeInput": "--accept-terms-of-use=true --datadir=/data --rpc-host=0.0.0.0 --jwt-secret=/data/jwtsecret"
+      }
+    }
+  },
+  "category": "L1/ConsensusClient/BeaconNode",
+  "rpcTranslation": "eth-l1-beacon",
+  "systemRequirements": {
+    "documentationUrl": "https://docs.prylabs.network/docs/install/install-with-script#step-1-review-prerequisites-and-best-practices",
+    "cpu": {
+      "cores": 4
+    },
+    "memory": {
+      "minSizeGBs": 8
+    },
+    "storage": {
+      "minSizeGBs": 200,
+      "ssdRequired": true
+    },
+    "internet": {
+      "minDownloadSpeedMbps": 8,
+      "minUploadSpeedMbps": 8
+    },
+    "docker": {
+      "required": true
+    }
+  },
+  "configTranslation": {
+    "dataDir": {
+      "displayName": "The directory where nimbus will store all blockchain data.",
+      "cliConfigPrefix": "--datadir=",
+      "uiControl": {
+        "type": "filePath"
+      },
+      "infoDescription": "Prysm root directory",
+      "documentation": "https://docs.prylabs.network/docs/prysm-usage/parameters/"
+    },
+    "network": {
+      "displayName": "Network",
+      "defaultValue": "Mainnet",
+      "hideFromUserAfterStart": true,
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Mainnet",
+            "config": "--mainnet --checkpoint-sync-url=https://beaconstate.ethstaker.cc"
+          },
+          {
+            "value": "Holesky",
+            "config": "--holesky"
+          },
+          {
+            "value": "Sepolia",
+            "config": "--sepolia"
+          }
+        ]
+      }
+    },
+    "checkpointSyncUrl": {
+      "displayName": "Trusted checkpoint sync URL",
+      "cliConfigPrefix": "--checkpoint-sync-url=",
+      "uiControl": {
+        "type": "text"
+      }
+    },
+    "p2pPortsTcp": {
+      "displayName": "P2P listening port (TCP)",
+      "cliConfigPrefix": "--p2p-tcp-port=",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Example value: 13000",
+      "defaultValue": "13000",
+      "documentation": "https://docs.prylabs.network/docs/prysm-usage/parameters"
+    },
+    "p2pPortsUdp": {
+      "displayName": "P2P discovery port (UDP)",
+      "cliConfigPrefix": "--p2p-udp-port=",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Example value: 12000",
+      "defaultValue": "12000",
+      "documentation": "https://docs.prylabs.network/docs/prysm-usage/parameters"
+    },
+    "httpPort": {
+      "displayName": "Gateway server listening port",
+      "cliConfigPrefix": "--grpc-gateway-port=",
+      "defaultValue": "3500",
+      "uiControl": {
+        "type": "text"
+      }
+    },
+    "httpCorsDomains": {
+      "displayName": "Gateway CORS domains",
+      "cliConfigPrefix": "--grpc-gateway-corsdomain=",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Comma separated list of domains from which to accept cross origin requests (browser enforced). This flag has no effect if not used with --grpc-gateway-port."
+    },
+    "httpHostAddress": {
+      "displayName": "Gateway host listening address",
+      "cliConfigPrefix": "--grpc-gateway-host=",
+      "defaultValue": "0.0.0.0",
+      "uiControl": {
+        "type": "text"
+      }
+    },
+    "executionEndpoint": {
+      "displayName": "Local execution Engine RPC-JSON API URL",
+      "cliConfigPrefix": "--execution-endpoint=",
+      "defaultValue": "http://host.containers.internal:8551",
+      "uiControl": {
+        "type": "text"
+      },
+      "iconUrl": "https://docs.prylabs.network/docs/execution-node/authentication#configure-beacon-node"
+    },
+    "maxPeerCount": {
+      "displayName": "Max Peer Count",
+      "cliConfigPrefix": "--p2p-max-peers=",
+      "defaultValue": "45",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Set to lower number to use less bandwidth"
+    }
+  },
+  "documentation": {
+    "default": "https://docs.prylabs.network/docs/getting-started",
+    "docker": "https://docs.prylabs.network/docs/install/install-with-docker/"
+  },
+  "iconUrl": "https://clientdiversity.org/assets/img/consensus-clients/prysm-logo.png",
+  "resources": [
+    {
+      "label": "Twitter",
+      "value": "@prylabs",
+      "link": "https://x.com/prylabs"
+    },
+    {
+      "label": "Discord",
+      "value": "Join",
+      "link": "https://discord.com/invite/prysmaticlabs"
+    },
+    {
+      "label": "Website",
+      "value": "prysmaticlabs.com",
+      "link": "https://prysmaticlabs.com/"
+    }
+  ]
+}

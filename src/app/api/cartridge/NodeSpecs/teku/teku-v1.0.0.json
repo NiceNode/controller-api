@@ -1,0 +1,186 @@
+{
+  "specId": "teku-beacon",
+  "version": "1.0.0",
+  "displayName": "Teku",
+  "execution": {
+    "executionTypes": ["docker"],
+    "defaultExecutionType": "docker",
+    "imageName": "docker.io/consensys/teku",
+    "defaultImageTag": "latest",
+    "input": {
+      "defaultConfig": {
+        "http": "Enabled",
+        "httpPort": "5052",
+        "httpHostAddress": "0.0.0.0",
+        "httpCorsDomains": "\"http://localhost\"",
+        "executionEndpoint": "http://host.containers.internal",
+        "checkpointSyncUrl": "https://beaconstate.ethstaker.cc",
+        "network": "Mainnet"
+      },
+      "docker": {
+        "containerVolumePath": "/var/lib/teku",
+        "raw": " --user 0",
+        "forcedRawNodeInput": "--data-path=\"/var/lib/teku\" --ee-jwt-secret-file=\"/var/lib/teku/jwtsecret\""
+      }
+    }
+  },
+  "category": "L1/ConsensusClient/BeaconNode",
+  "minorityClient": true,
+  "rpcTranslation": "eth-l1-beacon",
+  "systemRequirements": {
+    "documentationUrl": "https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Connect/Connect-To-Mainnet/",
+    "cpu": {
+      "cores": 4
+    },
+    "memory": {
+      "minSizeGBs": 8
+    },
+    "storage": {
+      "minSizeGBs": 200,
+      "ssdRequired": true
+    },
+    "internet": {
+      "minDownloadSpeedMbps": 8,
+      "minUploadSpeedMbps": 8
+    },
+    "docker": {
+      "required": true
+    }
+  },
+  "configTranslation": {
+    "dataDir": {
+      "displayName": "Data location",
+      "cliConfigPrefix": "--data-path=",
+      "uiControl": {
+        "type": "filePath"
+      },
+      "infoDescription": "Teku root directory",
+      "documentation": "https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#data-base-path-data-path"
+    },
+    "network": {
+      "displayName": "Network",
+      "cliConfigPrefix": "--network=",
+      "defaultValue": "Mainnet",
+      "hideFromUserAfterStart": true,
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Mainnet",
+            "config": "mainnet"
+          },
+          {
+            "value": "Holesky",
+            "config": "holesky"
+          },
+          {
+            "value": "Sepolia",
+            "config": "sepolia"
+          }
+        ]
+      }
+    },
+    "checkpointSyncUrl": {
+      "displayName": "Trusted checkpoint sync URL",
+      "cliConfigPrefix": "--checkpoint-sync-url=",
+      "uiControl": {
+        "type": "text"
+      },
+      "defaultValue": "https://beaconstate.ethstaker.cc",
+      "hideFromUserAfterStart": true,
+      "addNodeFlow": "advanced",
+      "documentation": "https://docs.teku.consensys.io/get-started/checkpoint-start"
+    },
+    "p2pPorts": {
+      "displayName": "P2P port (UDP and TCP)",
+      "cliConfigPrefix": "--p2p-port=",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Example value: 9000",
+      "defaultValue": "9000",
+      "documentation": "https://docs.teku.consensys.net/reference/cli#p2p-port"
+    },
+    "http": {
+      "displayName": "RPC HTTP connections",
+      "cliConfigPrefix": "--rest-api-enabled=",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled",
+            "config": "true"
+          },
+          {
+            "value": "Disabled",
+            "config": "false"
+          }
+        ]
+      },
+      "defaultValue": "Enabled",
+      "infoDescription": "NiceNode requires http connections",
+      "documentation": "https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#rest-api-enabled"
+    },
+    "httpPort": {
+      "displayName": "HTTP server listening port",
+      "cliConfigPrefix": "--rest-api-port=",
+      "defaultValue": "5052",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#rest-api-port"
+    },
+    "httpCorsDomains": {
+      "displayName": "HTTP CORS domains",
+      "cliConfigPrefix": "--rest-api-cors-origins=",
+      "defaultValue": "none",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "A comma-separated list of hostnames to allow access to the REST API. By default, Teku accepts access from localhost and 127.0.0.1.",
+      "warning": "Only trusted parties should access the REST API. Do not directly expose these APIs publicly on production nodes. We don’t recommend allowing all hostnames (\"*\") for production environments.",
+      "documentation": "https://docs.teku.consensys.net/en/stable/Reference/CLI/CLI-Syntax/#rest-api-host-allowlist"
+    },
+    "executionEndpoint": {
+      "displayName": "Local execution Engine RPC-JSON API URL",
+      "cliConfigPrefix": "--ee-endpoint=",
+      "defaultValue": "http://host.containers.internal:8551",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint"
+    },
+    "maxPeerCount": {
+      "displayName": "Max Peer Count",
+      "cliConfigPrefix": "--p2p-peer-upper-bound=",
+      "defaultValue": "74",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Set to lower number to use less bandwidth",
+      "documentation": "https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#p2p-peer-upper-bound"
+    }
+  },
+  "documentation": {
+    "default": "https://docs.teku.consensys.net/en/stable/",
+    "docker": "https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Installation-Options/Run-Docker-Image/"
+  },
+  "iconUrl": "https://clientdiversity.org/assets/img/consensus-clients/teku-logo.png",
+  "resources": [
+    {
+      "label": "Twitter",
+      "value": "@teku_consensys",
+      "link": "https://x.com/teku_consensys"
+    },
+    {
+      "label": "Discord",
+      "value": "Join",
+      "link": "https://discord.com/invite/consensys"
+    },
+    {
+      "label": "Website",
+      "value": "consensys.io/teku",
+      "link": "https://consensys.io/teku"
+    }
+  ]
+}
