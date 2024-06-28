@@ -1,7 +1,7 @@
 {
   "specId": "nethermind",
-  "version": "1.0.2",
-  "displayName": "Nethermindss",
+  "version": "1.0.0",
+  "displayName": "Nethermind",
   "execution": {
     "executionTypes": ["docker"],
     "defaultExecutionType": "docker",
@@ -84,10 +84,6 @@
           {
             "value": "Sepolia",
             "config": "sepolia"
-          },
-          {
-            "value": "SepoliaFake",
-            "config": "sepoliaFake"
           }
         ]
       },
