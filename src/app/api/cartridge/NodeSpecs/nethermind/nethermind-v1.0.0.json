@@ -1,7 +1,7 @@
 {
   "specId": "nethermind",
-  "version": "1.0.0",
-  "displayName": "Nethermind",
+  "version": "1.0.2",
+  "displayName": "Nethermindss",
   "execution": {
     "executionTypes": ["docker"],
     "defaultExecutionType": "docker",
@@ -84,6 +84,10 @@
           {
             "value": "Sepolia",
             "config": "sepolia"
+          },
+          {
+            "value": "SepoliaFake",
+            "config": "sepoliaFake"
           }
         ]
       },
@@ -303,7 +307,8 @@
         "type": "text"
       },
       "infoDescription": "Set to lower number to use less bandwidth",
-      "documentation": "https://docs.nethermind.io/nethermind/ethereum-client/configuration/network"
+      "documentation": "https://docs.nethermind.io/nethermind/ethereum-client/configuration/network",
+      "releaseNotesUrl": "https://github.com/NethermindEth/nethermind/releases"
     }
   },
   "documentation": {

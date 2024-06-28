@@ -19,6 +19,9 @@
         "name": "Consensus Client",
         "nodeOptions": [
           "lodestar-beacon",
+          "teku-beacon",
+          "prysm-beacon",
+          "lighthouse-beacon",
           "nimbus-beacon"
         ],
         "required": true,
