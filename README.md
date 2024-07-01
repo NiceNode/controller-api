@@ -1,6 +1,6 @@
-# cartridge-api
+# controller-api
 
-This is currently deployed to api.nicenode.xyz. To test it, enter `https://api.nicenode.xyz/api/cartridgeLibrary`into a browser and see the results of a GET HTTP on /cartridgeLibrary.
+This is currently deployed to api.nicenode.xyz. To test it, enter `https://api.nicenode.xyz/api/controllerLibrary`into a browser and see the results of a GET HTTP on /controllerLibrary.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
