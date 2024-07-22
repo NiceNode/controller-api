@@ -1,6 +1,6 @@
 {
   "specId": "op-node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "OP Node",
   "execution": {
     "executionTypes": ["docker"],
@@ -87,7 +87,7 @@
         ]
       },
       "defaultValue": "Disabled",
-      "documentation": "https://github.com/jgresham/superhack/blob/main/README.md#op-node-settings"
+      "documentation": "https://docs.optimism.io/builders/node-operators/configuration/consensus-config#l2"
     },
     "l1": {
       "displayName": "Ethereum RPC Endpoint  (local node or provider)",
@@ -118,7 +118,7 @@
       "defaultValue": "http://host.containers.internal:8553",
       "addNodeFlow": "advanced",
       "infoDescription": "engine and eth namespace required",
-      "documentation": "https://github.com/jgresham/superhack/blob/main/README.md#op-node-settings"
+      "documentation": "https://docs.optimism.io/builders/node-operators/configuration/consensus-config#l2"
     },
     "httpPort": {
       "displayName": "HTTP-RPC server listening port",
@@ -146,11 +146,16 @@
         "type": "text"
       },
       "infoDescription": "Number of L1 blocks to keep distance from the L1 head before deriving L2 data from. Reorgs are supported, but may be slow to perform.",
-      "documentation": "https://github.com/jgresham/superhack/blob/main/README.md#op-node-settings"
+      "documentation": "https://docs.optimism.io/builders/node-operators/configuration/consensus-config#verifierl1-confs"
     }
   },
   "iconUrl": "https://clientdiversity.org/assets/img/execution-clients/geth-logo.png",
   "resources": [
+    {
+      "label": "op-node docs",
+      "value": "optimism.io",
+      "link": "https://docs.optimism.io/builders/node-operators/configuration/consensus-config#verifierl1-confs"
+    },
     {
       "label": "OP Stack docs",
       "value": "optimism.io",
