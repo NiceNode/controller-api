@@ -1,6 +1,6 @@
 {
   "specId": "op-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "OP Node",
   "execution": {
     "executionTypes": ["docker"],
@@ -12,8 +12,7 @@
         "l2": "http://host.containers.internal:8553",
         "l1TrustRpc": "Enabled",
         "httpPort": "8549",
-        "p2pPorts": "9222",
-        "verifierL1Confs": "4"
+        "p2pPorts": "9222"
       },
       "docker": {
         "containerVolumePath": "/root/.ethereum",
@@ -140,12 +139,13 @@
       "defaultValue": "9222"
     },
     "verifierL1Confs": {
-      "displayName": "Max Peer Count (set to low number to use less bandwidth)",
+      "displayName": "Verifier L1 confirmations",
       "cliConfigPrefix": "--verifier.l1-confs ",
-      "defaultValue": "4",
+      "defaultValue": "0",
       "uiControl": {
         "type": "text"
       },
+      "infoDescription": "Number of L1 blocks to keep distance from the L1 head before deriving L2 data from. Reorgs are supported, but may be slow to perform.",
       "documentation": "https://github.com/jgresham/superhack/blob/main/README.md#op-node-settings"
     }
   },
