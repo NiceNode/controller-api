@@ -1,6 +1,6 @@
 {
   "specId": "reth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Reth",
   "execution": {
     "executionTypes": ["docker"],
@@ -335,6 +335,7 @@
     "default": "https://paradigmxyz.github.io/reth",
     "releaseNotesUrl": "https://github.com/paradigmxyz/reth/releases"
   },
+  "iconUrl" : "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/reth.png",
   "resources": [
     {
       "label": "Farcaster",

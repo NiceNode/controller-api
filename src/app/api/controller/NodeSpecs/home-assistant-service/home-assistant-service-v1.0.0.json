@@ -1,6 +1,6 @@
 {
   "specId": "home-assistant-service",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Home Assistant",
   "execution": {
     "executionTypes": ["docker"],
@@ -45,6 +45,7 @@
       }
     }
   },
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/home-assistant.png",
   "documentation": {
     "default": "https://www.home-assistant.io"
   },

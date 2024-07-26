@@ -1,6 +1,6 @@
 {
   "specId": "op-geth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "OP Geth",
   "displayTaglin": "Execution Client - OP Chains",
   "execution": {
@@ -276,7 +276,7 @@
       }
     }
   },
-  "iconUrl": "https://clientdiversity.org/assets/img/execution-clients/geth-logo.png",
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/op.png",
   "resources": [
     {
       "label": "Website",

@@ -1,6 +1,6 @@
 {
   "specId": "teku-beacon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Teku",
   "execution": {
     "executionTypes": ["docker"],
@@ -166,7 +166,7 @@
     "docker": "https://docs.teku.consensys.net/en/stable/HowTo/Get-Started/Installation-Options/Run-Docker-Image/",
     "releaseNotesUrl": "https://github.com/ConsenSys/teku/releases"
   },
-  "iconUrl": "https://clientdiversity.org/assets/img/consensus-clients/teku-logo.png",
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/teku.png",
   "resources": [
     {
       "label": "Twitter",

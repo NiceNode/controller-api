@@ -1,6 +1,6 @@
 {
   "specId": "op-node",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "OP Node",
   "execution": {
     "executionTypes": ["docker"],
@@ -149,7 +149,7 @@
       "documentation": "https://docs.optimism.io/builders/node-operators/configuration/consensus-config#verifierl1-confs"
     }
   },
-  "iconUrl": "https://clientdiversity.org/assets/img/execution-clients/geth-logo.png",
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/op.png",
   "resources": [
     {
       "label": "op-node docs",

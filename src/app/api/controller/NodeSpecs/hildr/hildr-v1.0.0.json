@@ -1,6 +1,6 @@
 {
   "specId": "hildr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Hildr",
   "execution": {
     "executionTypes": ["docker"],
@@ -187,7 +187,7 @@
       }
     }
   },
-  "iconUrl": "https://clientdiversity.org/assets/img/execution-clients/geth-logo.png",
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/hildr.png",
   "resources": [
     {
       "label": "OP Stack docs",

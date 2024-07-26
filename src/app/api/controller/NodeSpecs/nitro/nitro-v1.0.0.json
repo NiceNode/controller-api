@@ -219,5 +219,5 @@
     "default": "https://arbitrum.io/",
     "docker": "https://developer.offchainlabs.com/docs/running_node"
   },
-  "iconUrl": "https://arbitrum.io/wp-content/uploads/2021/08/Arbitrum_Symbol-Full-color-White-background-937x1024.png"
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/arbitrum.png"
 }

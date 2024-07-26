@@ -1,6 +1,6 @@
 {
   "specId": "op-erigon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "OP Erigon",
   "execution": {
     "executionTypes": ["docker"],
@@ -232,5 +232,5 @@
       "infoDescription": "[New flag / Optional] The historical RPC endpoint. op-erigon queries historical execution data that op-erigon does not support to historical RPC—for example, pre-bedrock executions. For Optimism Sepolia Testnet, please set this value to the Legacy Geth endpoint. For more information about legacy geth, refer the Optimism's node operator guide."
     }
   },
-  "iconUrl": "https://clientdiversity.org/assets/img/execution-clients/geth-logo.png"
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/op.png"
 }

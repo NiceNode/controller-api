@@ -1,6 +1,6 @@
 {
   "specId": "minecraft",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Minecraft Server",
   "displayTagline": "Local Minecraft server at 'localhost'. [Note] NOT AFFLIATED with Mojang or Microsoft!",
   "execution": {

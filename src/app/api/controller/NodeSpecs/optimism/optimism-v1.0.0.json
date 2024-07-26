@@ -1,6 +1,6 @@
 {
   "specId": "optimism",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Optimism",
   "displayTagline": "Ethereum L2 - Optimism",
   "execution": {
@@ -108,7 +108,7 @@
       "infoDescription": "Mainnet support coming soon"
     }
   },
-  "iconUrl": "https://ethereum.png",
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/optimism.png",
   "addNodeDescription": "OP Mainnet is a fast, stable, and scalable L2 blockchain built by Ethereum developers, for Ethereum developers.",
   "description": "Optimism is a secure, low-cost, developer-friendly Ethereum L2 built to bring the next billion users onchain. It's built on Optimism’s open-source OP Stack.",
   "documentation": {

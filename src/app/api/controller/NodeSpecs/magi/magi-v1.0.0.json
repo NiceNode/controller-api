@@ -1,6 +1,6 @@
 {
   "specId": "magi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Magi",
   "displayTagLine": "An OP Stack rollup client written in Rust",
   "execution": {
@@ -204,6 +204,7 @@
       "infoDescription": "Only usable with sync mode checkpoint"
     }
   },
+  "iconUrl" : "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/magi.png",
   "resources": [
     {
       "label": "OP Stack docs",

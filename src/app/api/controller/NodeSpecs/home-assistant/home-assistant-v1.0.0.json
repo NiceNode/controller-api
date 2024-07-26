@@ -1,6 +1,6 @@
 {
   "specId": "home-assistant",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Home Assistant",
   "displayTagline": "Local Home Assistant server. [Note] NOT AFFLIATED with Home Assistant or NabuCasa!",
   "execution": {
@@ -49,7 +49,7 @@
       "infoDescription": "Data directory for the assistant config (default: \"/config\")"
     }
   },
-  "iconUrl": "https://raw.githubusercontent.com/home-assistant/home-assistant.io/current/source/images/favicon-192x192.png",
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/home-assistant.png",
   "description": "[Note] This is NOT AFFLIATED in any way with the official Home Assistant or NabuCasa organizations! This offering is open-source, free, and not guarenteed any support by us. Please read our terms and privacy policies on https://nicenode.xyz for more information. To play on this server on the same computer that it is being run, add 'localhost' for the multiplayer server. To add this server on a different computer and on the same network, add your computer's local IP address to the multiplayer server.",
   "addNodeDescription": "Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server. [Note] This is NOT AFFLIATED in any way with the official Home Assistant or NabuCasa organizations!",
   "resources": [

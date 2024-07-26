@@ -1,6 +1,6 @@
 {
   "specId": "lighthouse-beacon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Lighthouse",
   "execution": {
     "executionTypes": ["docker", "binary"],
@@ -202,7 +202,7 @@
     "docker": "https://lighthouse-book.sigmaprime.io/docker.html",
     "releaseNotesUrl": "https://github.com/sigp/lighthouse/releases"
   },
-  "iconUrl": "https://clientdiversity.org/assets/img/consensus-clients/lighthouse-logo.png",
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/lighthouse.png",
   "resources": [
     {
       "label": "Twitter",

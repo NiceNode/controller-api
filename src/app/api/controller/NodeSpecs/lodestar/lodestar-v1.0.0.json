@@ -1,6 +1,6 @@
 {
   "specId": "lodestar-beacon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Lodestar",
   "execution": {
     "executionTypes": ["docker"],
@@ -161,7 +161,7 @@
     "docker": "https://chainsafe.github.io/lodestar/installation/#install-with-docker",
     "releaseNotesUrl": "https://github.com/ChainSafe/lodestar/releases"
   },
-  "iconUrl": "https://clientdiversity.org/assets/img/consensus-clients/lodestar-logo-text.png",
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/lodestar.png",
   "resources": [
     {
       "label": "Twitter",

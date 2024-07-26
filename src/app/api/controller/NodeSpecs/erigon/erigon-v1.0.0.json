@@ -1,6 +1,6 @@
 {
   "specId": "erigon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Erigon",
   "execution": {
     "executionTypes": ["docker"],
@@ -294,7 +294,7 @@
     "default": "https://erigon.tech/",
     "releaseNotesUrl": "https://github.com/ledgerwatch/erigon/releases"
   },
-  "iconUrl": "https://clientdiversity.org/assets/img/execution-clients/erigon-text-logo.png",
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/erigon.png",
   "resources": [
     {
       "label": "Configuration documentation",

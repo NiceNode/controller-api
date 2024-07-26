@@ -1,6 +1,6 @@
 {
   "specId": "arbitrum",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Arbitrum One",
   "displayTagline": "Non-Validating Node",
   "execution": {
@@ -63,5 +63,6 @@
     }
   },
   "addNodeDescription": "Designed with you in mind, Arbitrum is the leading Layer 2 technology that empowers you to explore and build in the largest Layer 1 ecosystem, Ethereum.",
-  "description": "Designed with you in mind, Arbitrum is the leading Layer 2 technology that empowers you to explore and build in the largest Layer 1 ecosystem, Ethereum.  Take it to the next layer with Nitro. Making Ethereum more inclusive and sustainable, Nitro is the most advanced blockchain scaling technology in the industry."
+  "description": "Designed with you in mind, Arbitrum is the leading Layer 2 technology that empowers you to explore and build in the largest Layer 1 ecosystem, Ethereum.  Take it to the next layer with Nitro. Making Ethereum more inclusive and sustainable, Nitro is the most advanced blockchain scaling technology in the industry.",
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/arbitrum.png"
 }

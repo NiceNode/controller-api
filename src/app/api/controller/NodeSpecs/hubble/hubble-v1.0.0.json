@@ -1,6 +1,6 @@
 {
   "specId": "hubble",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Hubble",
   "displayTagline": "A fast, simple implementation of a Farcaster Hub in Typescript + Rust",
   "execution": {
@@ -119,5 +119,5 @@
       "infoDescription": "Mainnet or testnet - Example value: 1"
     }
   },
-  "iconUrl": "https://avatars.githubusercontent.com/u/98775309"
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/hubble.png"
 }
