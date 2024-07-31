@@ -2,6 +2,7 @@
   "specId": "base",
   "version": "1.0.1",
   "displayName": "Base",
+  "selectCardTagline": "A secure and low-cost Ethereum Layer 2 built on the OP stack",
   "execution": {
     "executionTypes": ["nodePackage"],
     "services": [

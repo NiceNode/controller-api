@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "displayName": "Arbitrum One",
   "displayTagline": "Non-Validating Node",
+  "selectCardTagline": "Welcome to the future of Ethereum",
   "execution": {
     "executionTypes": ["nodePackage"],
     "defaultExecutionType": "nodePackage",

@@ -1,14 +1,14 @@
 {
   "specId": "op-node",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "displayName": "OP Node",
   "execution": {
     "executionTypes": ["docker"],
     "defaultExecutionType": "docker",
     "input": {
       "defaultConfig": {
-        "l1": "",
-        "l1Beacon": "",
+        "l1": "https://ethereum-rpc.publicnode.com",
+        "l1Beacon": "https://ethereum-beacon-api.publicnode.com",
         "l2": "http://host.containers.internal:8553",
         "l1TrustRpc": "Enabled",
         "httpPort": "8549",
@@ -21,7 +21,7 @@
       }
     },
     "imageName": "us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node",
-    "defaultImageTag": "v1.7.7"
+    "defaultImageTag": "v1.8.0"
   },
   "category": "L2/ConsensusClient",
   "rpcTranslation": "eth-l2-consensus",

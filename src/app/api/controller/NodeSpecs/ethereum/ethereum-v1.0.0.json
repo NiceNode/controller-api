@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "displayName": "Ethereum",
   "displayTagline": "Non-Validating Node - Ethereum",
+  "selectCardTagline": "The world computer",
   "execution": {
     "executionTypes": ["nodePackage"],
     "defaultExecutionType": "nodePackage",

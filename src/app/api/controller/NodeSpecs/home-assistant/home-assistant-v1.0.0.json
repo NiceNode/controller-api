@@ -2,7 +2,8 @@
   "specId": "home-assistant",
   "version": "1.0.1",
   "displayName": "Home Assistant",
-  "displayTagline": "Local Home Assistant server. [Note] NOT AFFLIATED with Home Assistant or NabuCasa!",
+  "displayTagline": "Local Home Assistant server",
+  "selectCardTagline": "Awaken your home",
   "execution": {
     "executionTypes": ["nodePackage"],
     "defaultExecutionType": "nodePackage",

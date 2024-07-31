@@ -1,15 +1,15 @@
 {
   "specId": "hildr",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "displayName": "Hildr",
   "execution": {
     "executionTypes": ["docker"],
     "defaultExecutionType": "docker",
     "input": {
       "defaultConfig": {
-        "l1": "",
-        "l1WebSocketUrl": "",
-        "l1BeaconUrl": "",
+        "l1": "https://ethereum-rpc.publicnode.com",
+        "l1WebSocketUrl": "wss://ethereum-rpc.publicnode.com",
+        "l1BeaconUrl": "https://ethereum-beacon-api.publicnode.com",
         "l2RpcUrl": "http://host.containers.internal:8547",
         "l2EngineUrl": "http://host.containers.internal:8553",
         "httpPort": "8549",

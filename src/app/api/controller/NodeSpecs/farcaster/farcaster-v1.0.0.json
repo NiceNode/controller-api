@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "displayName": "Farcaster",
   "displayTagline": "Sync the entire Farcaster network",
+  "selectCardTagline": "A protocol for decentralized social apps",
   "execution": {
     "executionTypes": ["nodePackage"],
     "defaultExecutionType": "nodePackage",

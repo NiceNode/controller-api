@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "displayName": "Optimism",
   "displayTagline": "Ethereum L2 - Optimism",
+  "selectCardTagline": "Ethereum, scaled. Built by the OP Collective",
   "execution": {
     "executionTypes": ["nodePackage"],
     "services": [
