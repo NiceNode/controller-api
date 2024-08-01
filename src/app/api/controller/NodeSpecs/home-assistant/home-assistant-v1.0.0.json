@@ -1,6 +1,6 @@
 {
   "specId": "home-assistant",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "Home Assistant",
   "displayTagline": "Local Home Assistant server",
   "selectCardTagline": "Awaken your home",

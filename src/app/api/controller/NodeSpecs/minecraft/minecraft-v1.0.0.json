@@ -1,6 +1,6 @@
 {
   "specId": "minecraft",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "Minecraft Server",
   "displayTagline": "Local Minecraft server at 'localhost'",
   "selectCardTagline": "The world is yours for the making",

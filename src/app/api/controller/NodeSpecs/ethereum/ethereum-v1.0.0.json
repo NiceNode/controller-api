@@ -1,6 +1,6 @@
 {
   "specId": "ethereum",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "Ethereum",
   "displayTagline": "Non-Validating Node - Ethereum",
   "selectCardTagline": "The world computer",
