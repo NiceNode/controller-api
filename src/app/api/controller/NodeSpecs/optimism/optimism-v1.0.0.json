@@ -1,8 +1,9 @@
 {
   "specId": "optimism",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "Optimism",
   "displayTagline": "Ethereum L2 - Optimism",
+  "selectCardTagline": "Ethereum, scaled. Built by the OP Collective",
   "execution": {
     "executionTypes": ["nodePackage"],
     "services": [
@@ -39,7 +40,7 @@
       "minSizeGBs": 16
     },
     "storage": {
-      "minSizeGBs": 200,
+      "minSizeGBs": 1500,
       "ssdRequired": true
     },
     "internet": {

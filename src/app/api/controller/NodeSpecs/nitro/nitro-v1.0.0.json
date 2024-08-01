@@ -1,6 +1,6 @@
 {
   "specId": "nitro",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "displayName": "Arbitrum Nitro",
   "execution": {
     "executionTypes": ["docker"],
@@ -9,8 +9,6 @@
     "defaultImageTag": "v3.1.0-7d1d84c",
     "input": {
       "defaultConfig": {
-        "parentChainRpcUrl": "",
-        "parentChainBeaconRpcUrl": "",
         "initUrl": "https://snapshot.arbitrum.foundation/arb1/nitro-pruned.tar",
         "l2ChainId": "42161",
         "httpAddress": "0.0.0.0",
@@ -53,7 +51,7 @@
     "parentChainRpcUrl": {
       "displayName": "Ethereum Mainnet RPC Endpoint",
       "cliConfigPrefix": "--parent-chain.connection.url=",
-      "defaultValue": "",
+      "defaultValue": "https://ethereum-rpc.publicnode.com",
       "uiControl": {
         "type": "text"
       },
@@ -63,7 +61,7 @@
     "parentChainBeaconRpcUrl": {
       "displayName": "Ethereum Mainnet Beacon RPC Endpoint",
       "cliConfigPrefix": "--parent-chain.blob-client.beacon-url=",
-      "defaultValue": "",
+      "defaultValue": "https://ethereum-beacon-api.publicnode.com",
       "uiControl": {
         "type": "text"
       },

@@ -1,6 +1,6 @@
 {
   "specId": "magi",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "displayName": "Magi",
   "displayTagLine": "An OP Stack rollup client written in Rust",
   "execution": {
@@ -8,10 +8,6 @@
     "defaultExecutionType": "docker",
     "input": {
       "defaultConfig": {
-        "l1RpcUrl": "",
-        "l1BeaconUrl": "",
-        "l2RpcUrl": "http://host.containers.internal:8547",
-        "l2EngineUrl": "http://host.containers.internal:8553",
         "l1TrustRpc": "Enabled",
         "httpPort": "8549",
         "p2pPorts": "9222"
@@ -138,7 +134,7 @@
         "type": "text"
       },
       "addNodeFlow": "required",
-      "defaultValue": ""
+      "defaultValue": "https://ethereum-rpc.publicnode.com"
     },
     "l1BeaconUrl": {
       "displayName": "Ethereum Beacon RPC Endpoint",
@@ -147,7 +143,7 @@
         "type": "text"
       },
       "addNodeFlow": "required",
-      "defaultValue": "",
+      "defaultValue": "https://ethereum-beacon-api.publicnode.com",
       "infoDescription": "Provider with historical blob API enabled or a local node http://host.containers.internal:5052"
     },
     "l2RpcUrl": {

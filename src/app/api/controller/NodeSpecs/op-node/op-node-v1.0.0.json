@@ -1,15 +1,12 @@
 {
   "specId": "op-node",
-  "version": "1.0.3",
+  "version": "1.1.1",
   "displayName": "OP Node",
   "execution": {
     "executionTypes": ["docker"],
     "defaultExecutionType": "docker",
     "input": {
       "defaultConfig": {
-        "l1": "",
-        "l1Beacon": "",
-        "l2": "http://host.containers.internal:8553",
         "l1TrustRpc": "Enabled",
         "httpPort": "8549",
         "p2pPorts": "9222"
@@ -21,7 +18,7 @@
       }
     },
     "imageName": "us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node",
-    "defaultImageTag": "v1.7.7"
+    "defaultImageTag": "v1.8.0"
   },
   "category": "L2/ConsensusClient",
   "rpcTranslation": "eth-l2-consensus",
@@ -34,7 +31,7 @@
       "minSizeGBs": 8
     },
     "storage": {
-      "minSizeGBs": 30,
+      "minSizeGBs": 1000,
       "ssdRequired": true
     },
     "internet": {
@@ -96,7 +93,7 @@
         "type": "text"
       },
       "addNodeFlow": "required",
-      "defaultValue": "",
+      "defaultValue": "https://ethereum-rpc.publicnode.com",
       "infoDescription": "Provider or a local node http://host.containers.internal:8545"
     },
     "l1Beacon": {
@@ -106,7 +103,7 @@
         "type": "text"
       },
       "addNodeFlow": "required",
-      "defaultValue": "",
+      "defaultValue": "https://ethereum-beacon-api.publicnode.com",
       "infoDescription": "Provider with historical blob API enabled or a local node http://host.containers.internal:5052"
     },
     "l2": {
