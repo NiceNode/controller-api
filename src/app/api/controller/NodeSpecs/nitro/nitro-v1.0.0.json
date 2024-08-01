@@ -9,6 +9,8 @@
     "defaultImageTag": "v3.1.0-7d1d84c",
     "input": {
       "defaultConfig": {
+        "parentChainRpcUrl": "https://ethereum-rpc.publicnode.com",
+        "parentChainBeaconRpcUrl": "https://ethereum-beacon-api.publicnode.com",
         "initUrl": "https://snapshot.arbitrum.foundation/arb1/nitro-pruned.tar",
         "l2ChainId": "42161",
         "httpAddress": "0.0.0.0",
