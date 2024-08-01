@@ -1,6 +1,6 @@
 {
   "specId": "hildr",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "displayName": "Hildr",
   "execution": {
     "executionTypes": ["docker"],
@@ -107,7 +107,7 @@
         "type": "text"
       },
       "addNodeFlow": "required",
-      "defaultValue": ""
+      "defaultValue": "https://ethereum-rpc.publicnode.com"
     },
     "l1WebSocketUrl": {
       "displayName": "Ethereum *Archival* WebSocket Endpoint",
@@ -116,7 +116,7 @@
         "type": "text"
       },
       "addNodeFlow": "required",
-      "defaultValue": ""
+      "defaultValue": "wss://ethereum-rpc.publicnode.com"
     },
     "l1BeaconUrl": {
       "displayName": "Ethereum Beacon RPC Endpoint",
@@ -125,7 +125,7 @@
         "type": "text"
       },
       "addNodeFlow": "required",
-      "defaultValue": ""
+      "defaultValue": "https://ethereum-beacon-api.publicnode.com"
     },
     "l2RpcUrl": {
       "displayName": "Optimism RPC Endpoint (local node or provider)",

@@ -1,6 +1,6 @@
 {
   "specId": "farcaster",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "displayName": "Farcaster",
   "displayTagline": "Sync the entire Farcaster network",
   "selectCardTagline": "A protocol for decentralized social apps",
@@ -38,7 +38,7 @@
       "minSizeGBs": 8
     },
     "storage": {
-      "minSizeGBs": 20,
+      "minSizeGBs": 200,
       "ssdRequired": true
     },
     "docker": {

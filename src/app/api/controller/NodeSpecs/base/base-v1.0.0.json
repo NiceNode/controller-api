@@ -1,6 +1,6 @@
 {
   "specId": "base",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "displayName": "Base",
   "selectCardTagline": "A secure and low-cost Ethereum Layer 2 built on the OP stack",
   "execution": {
@@ -33,13 +33,13 @@
   "systemRequirements": {
     "documentationUrl": "https://geth.ethereum.org/docs/interface/hardware",
     "cpu": {
-      "cores": 4
+      "cores": 8
     },
     "memory": {
       "minSizeGBs": 16
     },
     "storage": {
-      "minSizeGBs": 200,
+      "minSizeGBs": 2000,
       "ssdRequired": true
     },
     "internet": {
