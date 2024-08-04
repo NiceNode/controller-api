@@ -9,7 +9,7 @@
       {
         "serviceId": "executionClient",
         "name": "Execution Client",
-        "nodeOptions": ["op-geth", "nethermind"],
+        "nodeOptions": ["op-geth", "nethermind", "op-reth"],
         "required": true,
         "requiresCommonJwtSecret": true
       },

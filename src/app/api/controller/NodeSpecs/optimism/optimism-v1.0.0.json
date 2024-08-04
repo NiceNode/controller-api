@@ -1,7 +1,7 @@
 {
   "specId": "optimism",
   "version": "1.0.2",
-  "displayName": "Optimism",
+  "displayName": "Optimismm",
   "displayTagline": "Ethereum L2 - Optimism",
   "selectCardTagline": "Ethereum, scaled. Built by the OP Collective",
   "execution": {
@@ -10,7 +10,7 @@
       {
         "serviceId": "executionClient",
         "name": "Execution Client",
-        "nodeOptions": ["op-geth", "nethermind"],
+        "nodeOptions": ["op-geth", "nethermind", "op-reth"],
         "required": true,
         "requiresCommonJwtSecret": true
       },
