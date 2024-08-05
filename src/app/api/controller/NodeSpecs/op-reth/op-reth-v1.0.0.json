@@ -1,0 +1,367 @@
+{
+  "specId": "op-reth",
+  "version": "1.0.0",
+  "displayName": "OP Reth",
+  "execution": {
+    "executionTypes": ["docker"],
+    "defaultExecutionType": "docker",
+    "execPath": "op-reth",
+    "input": {
+      "defaultConfig": {
+        "http": "Enabled",
+        "webSockets": "Enabled",
+        "httpCorsDomains": "http://localhost",
+        "syncMode": "full",
+        "httpAddress": "0.0.0.0",
+        "webSocketAddress": "0.0.0.0",
+        "webSocketAllowedOrigins": "http://localhost"
+      },
+      "docker": {
+        "containerVolumePath": "/root/.local/share/optimism",
+        "raw": "",
+        "forcedRawNodeInput": "node --color never --enable-discv5-discovery --authrpc.addr 0.0.0.0 --authrpc.jwtsecret /root/.local/share/optimism/jwtsecret --ipcdisable"
+      }
+    },
+    "imageName": "ghcr.io/paradigmxyz/op-reth",
+    "defaultImageTag": "latest"
+  },
+  "category": "L1/ExecutionClient",
+  "minorityClient": true,
+  "rpcTranslation": "eth-l1",
+  "systemRequirements": {
+    "documentationUrl": "https://paradigmxyz.github.io/reth/installation/installation.html#hardware-requirements",
+    "cpu": {
+      "cores": 2
+    },
+    "memory": {
+      "minSizeGBs": 8
+    },
+    "storage": {
+      "minSizeGBs": 1000,
+      "ssdRequired": true
+    },
+    "internet": {
+      "minDownloadSpeedMbps": 24,
+      "minUploadSpeedMbps": 10
+    },
+    "docker": {
+      "required": true
+    }
+  },
+  "configTranslation": {
+    "chainId": {
+      "displayName": "Chain ID (Network)",
+      "cliConfigPrefix": "--chain ",
+      "hideFromUserAfterStart": true,
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "10",
+            "config": "optimism"
+          },
+          {
+            "value": "11155420",
+            "config": "optimism-sepolia"
+          },
+          {
+            "value": "8453",
+            "config": "base"
+          },
+          {
+            "value": "84532",
+            "config": "base-sepolia"
+          }
+        ]
+      },
+      "documentation": "https://docs.optimism.io/builders/node-operators/management/configuration#op-network-betaop-network"
+    },
+    "rollupSequencerHttpEndpoint": {
+      "displayName": "HTTP endpoint for the sequencer mempool (Ex. for base: https://mainnet-sequencer.base.org)",
+      "cliConfigPrefix": "--rollup.sequencer-http ",
+      "uiControl": {
+        "type": "text"
+      }
+    },
+    "http": {
+      "displayName": "RPC HTTP connections",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled",
+            "config": "--http"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
+      },
+      "defaultValue": "Enabled",
+      "documentation": "https://paradigmxyz.github.io/reth/cli/node.html"
+    },
+    "webSockets": {
+      "displayName": "RPC WebSocket connections",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled",
+            "config": "--ws"
+          },
+          {
+            "value": "Disabled"
+          }
+        ]
+      },
+      "defaultValue": "Enabled",
+      "documentation": "https://paradigmxyz.github.io/reth/cli/node.html"
+    },
+    "webSocketAddress": {
+      "displayName": "WebSocket-RPC server listening interface",
+      "cliConfigPrefix": "--ws.addr ",
+      "defaultValue": "0.0.0.0",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://geth.ethereum.org/docs/interacting-with-geth/rpc#websockets-server"
+    },
+    "webSocketAllowedOrigins": {
+      "displayName": "WebSocket-RPC allowed origins",
+      "defaultValue": "http://localhost",
+      "cliConfigPrefix": "--ws.origins ",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Change where the node accepts web socket connections (use comma separated urls) or \"*\" for all"
+    },
+    "webSocketApis": {
+      "displayName": "Enabled WebSocket APIs",
+      "cliConfigPrefix": "--ws.api ",
+      "defaultValue": ["eth", "net", "web3"],
+      "valuesJoinStr": ",",
+      "uiControl": {
+        "type": "select/multiple",
+        "controlTranslations": [
+          {
+            "value": "eth",
+            "config": "eth"
+          },
+          {
+            "value": "net",
+            "config": "net"
+          },
+          {
+            "value": "web3",
+            "config": "web3"
+          },
+          {
+            "value": "debug",
+            "config": "debug"
+          },
+
+          {
+            "value": "personal",
+            "config": "personal"
+          },
+          {
+            "value": "admin",
+            "config": "admin"
+          },
+          {
+            "value": "ots",
+            "config": "ots"
+          },
+          {
+            "value": "rpc",
+            "config": "rpc"
+          },
+          {
+            "value": "reth",
+            "config": "reth"
+          },
+          {
+            "value": "trace",
+            "config": "trace"
+          },
+          {
+            "value": "txpool",
+            "config": "txpool"
+          }
+        ]
+      }
+    },
+    "httpApis": {
+      "displayName": "Enabled HTTP APIs",
+      "cliConfigPrefix": "--http.api ",
+      "defaultValue": ["eth", "net", "web3"],
+      "valuesJoinStr": ",",
+      "uiControl": {
+        "type": "select/multiple",
+        "controlTranslations": [
+          {
+            "value": "eth",
+            "config": "eth"
+          },
+          {
+            "value": "net",
+            "config": "net"
+          },
+          {
+            "value": "web3",
+            "config": "web3"
+          },
+          {
+            "value": "debug",
+            "config": "debug"
+          },
+
+          {
+            "value": "personal",
+            "config": "personal"
+          },
+          {
+            "value": "admin",
+            "config": "admin"
+          },
+          {
+            "value": "ots",
+            "config": "ots"
+          },
+          {
+            "value": "rpc",
+            "config": "rpc"
+          },
+          {
+            "value": "reth",
+            "config": "reth"
+          },
+          {
+            "value": "trace",
+            "config": "trace"
+          },
+          {
+            "value": "txpool",
+            "config": "txpool"
+          }
+        ]
+      }
+    },
+    "httpCorsDomains": {
+      "displayName": "Change where the node accepts http connections (use comma separated urls)",
+      "cliConfigPrefix": "--http.corsdomain ",
+      "uiControl": {
+        "type": "text"
+      }
+    },
+    "syncMode": {
+      "displayName": "Execution Client Sync Mode",
+      "category": "Syncronization",
+      "cliConfigPrefix": "",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "full",
+            "config": "--full",
+            "info": "~1TB"
+          },
+          {
+            "value": "archive",
+            "config": "",
+            "info": "~2.2TB / 2d"
+          }
+        ]
+      },
+      "addNodeFlow": "required",
+      "defaultValue": "full",
+      "hideFromUserAfterStart": true,
+      "documentation": "https://paradigmxyz.github.io/reth/run/pruning.html"
+    },
+    "httpAddress": {
+      "displayName": "HTTP-RPC server listening interface",
+      "cliConfigPrefix": "--http.addr ",
+      "defaultValue": "0.0.0.0",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://paradigmxyz.github.io/reth/cli/node.html"
+    },
+    "p2pPorts": {
+      "displayName": "P2P port (UDP and TCP)",
+      "cliConfigPrefix": "--discovery.port ",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "Example value: 30303",
+      "defaultValue": "30303"
+    },
+    "enginePort": {
+      "displayName": "Engine JSON-RPC listening port",
+      "cliConfigPrefix": "--authrpc.port ",
+      "defaultValue": "8553",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "The listening port for the Engine API calls for JSON-RPC over HTTP and WebSocket."
+    },
+    "httpPort": {
+      "displayName": "HTTP-RPC server listening port",
+      "cliConfigPrefix": "--http.port ",
+      "defaultValue": "8545",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://paradigmxyz.github.io/reth/cli/node.html"
+    },
+    "webSocketsPort": {
+      "displayName": "WS-RPC server listening port",
+      "cliConfigPrefix": "--ws.port ",
+      "defaultValue": "8546",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://paradigmxyz.github.io/reth/cli/node.html"
+    },
+    "maxOutboundPeerCount": {
+      "displayName": "Max outbound peer count (set to low number to use less bandwidth)",
+      "cliConfigPrefix": "--max-outbound-peers ",
+      "defaultValue": "100",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://paradigmxyz.github.io/reth/cli/node.html"
+    },
+    "maxInboundPeerCount": {
+      "displayName": "Max inbound peer count (set to low number to use less bandwidth)",
+      "cliConfigPrefix": "--max-inbound-peers ",
+      "defaultValue": "30",
+      "uiControl": {
+        "type": "text"
+      },
+      "documentation": "https://paradigmxyz.github.io/reth/cli/node.html"
+    }
+  },
+  "documentation": {
+    "default": "https://paradigmxyz.github.io/reth",
+    "releaseNotesUrl": "https://github.com/paradigmxyz/reth/releases"
+  },
+  "iconUrl" : "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/reth.png",
+  "resources": [
+    {
+      "label": "Farcaster",
+      "value": "Reth Warpcast Channel",
+      "link": "https://warpcast.com/~/channel/reth"
+    },
+    {
+      "label": "Telegram",
+      "value": "Join",
+      "link": "https://t.me/paradigm_reth"
+    },
+    {
+      "label": "Website",
+      "value": "paradigmxyz.github.io/reth",
+      "link": "https://paradigmxyz.github.io/reth/"
+    }
+  ]
+}

@@ -7,6 +7,9 @@
     "defaultExecutionType": "docker",
     "input": {
       "defaultConfig": {
+        "l1": "https://ethereum-rpc.publicnode.com",
+        "l1Beacon": "https://ethereum-beacon-api.publicnode.com",
+        "l2": "http://host.containers.internal:8553",
         "l1TrustRpc": "Enabled",
         "httpPort": "8549",
         "p2pPorts": "9222"

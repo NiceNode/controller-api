@@ -8,6 +8,8 @@
     "defaultExecutionType": "docker",
     "input": {
       "defaultConfig": {
+        "ethMainnetRpcUrl": "https://ethereum-rpc.publicnode.com",
+        "optimismMainnetRpcUrl": "https://optimism-rpc.publicnode.com",
         "p2pPorts": "2282",
         "httpPort": "2281",
         "gRpcPort": "2283",

@@ -1,12 +1,17 @@
 {
   "specId": "hildr",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "displayName": "Hildr",
   "execution": {
     "executionTypes": ["docker"],
     "defaultExecutionType": "docker",
     "input": {
       "defaultConfig": {
+        "l1": "https://ethereum-rpc.publicnode.com",
+        "l1WebSocketUrl": "wss://ethereum-rpc.publicnode.com",
+        "l1BeaconUrl": "https://ethereum-beacon-api.publicnode.com",
+        "l2RpcUrl": "http://host.containers.internal:8547",
+        "l2EngineUrl": "http://host.containers.internal:8553",
         "httpPort": "8549",
         "logLevel": "Debug"
       },
@@ -17,7 +22,7 @@
       }
     },
     "imageName": "ghcr.io/optimism-java/hildr",
-    "defaultImageTag": "latest-native"
+    "defaultImageTag": "latest"
   },
   "category": "L2/ConsensusClient",
   "minorityClient": true,

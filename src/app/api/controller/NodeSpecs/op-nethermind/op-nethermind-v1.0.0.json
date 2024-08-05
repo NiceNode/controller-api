@@ -1,12 +1,13 @@
 {
-  "specId": "nethermind",
-  "version": "1.0.2",
-  "displayName": "Nethermind",
+  "specId": "op-nethermind",
+  "version": "1.0.0",
+  "displayName": "OP Nethermind",
   "execution": {
     "executionTypes": ["docker"],
     "defaultExecutionType": "docker",
     "input": {
       "defaultConfig": {
+        "p2pDiscoveryV5": "Enabled",
         "http": "Enabled",
         "webSockets": "Enabled",
         "syncMode": "snap",
@@ -24,7 +25,7 @@
       "binary": ["amd64", "arm64"]
     },
     "imageName": "docker.io/nethermind/nethermind",
-    "defaultImageTag": "latest",
+    "defaultImageTag": "1.28.0-rc",
     "binaryDownload": {
       "type": "githubReleases",
       "latestVersionUrl": "https://api.github.com/repos/NethermindEth/nethermind/releases/latest",
@@ -97,16 +98,20 @@
         "type": "select/single",
         "controlTranslations": [
           {
-            "value": "1",
-            "config": "mainnet"
+            "value": "10",
+            "config": "op-mainnet"
           },
           {
-            "value": "17000",
-            "config": "holesky"
+            "value": "11155420",
+            "config": "op-sepolia"
           },
           {
-            "value": "11155111",
-            "config": "sepolia"
+            "value": "8453",
+            "config": "base-mainnet"
+          },
+          {
+            "value": "8453",
+            "config": "base-sepolia"
           }
         ]
       }
@@ -244,6 +249,31 @@
       ],
       "documentation": "https://docs.nethermind.io/nethermind/ethereum-client/json-rpc"
     },
+    "p2pDiscoveryV5": {
+      "displayName": "Peer Discovery v5",
+      "uiControl": {
+        "type": "select/single",
+        "controlTranslations": [
+          {
+            "value": "Enabled",
+            "config": "--Discovery.Discv5Enabled true"
+          },
+          {
+            "value": "Disabled",
+            "config": "--Discovery.Discv5Enabled=false"
+          }
+        ]
+      },
+      "defaultValue": "Enabled",
+      "documentation": "https://docs.nethermind.io/interacting/json-rpc-server/#websocket"
+    },
+    "rollupSequencerHttpEndpoint" : {
+      "displayName": "HTTP endpoint for the sequencer mempool (Ex. for base: https://mainnet-sequencer.base.org)",
+      "cliConfigPrefix": "--Optimism.SequencerUrl ",
+      "uiControl": {
+        "type": "text"
+      }
+    },
     "syncMode": {
       "displayName": "Execution Client Sync Mode",
       "category": "Syncronization",
@@ -301,6 +331,11 @@
   },
   "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/nethermind.png",
   "resources": [
+    {
+      "label": "OP Nethermind docs",
+      "value": "docs.nethermind.io",
+      "link": "https://docs.nethermind.io/fundamentals/configuration/#optimism"
+    },
     {
       "label": "Twitter",
       "value": "@NethermindEth",
