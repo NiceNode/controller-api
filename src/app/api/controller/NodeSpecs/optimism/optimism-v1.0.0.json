@@ -1,7 +1,7 @@
 {
   "specId": "optimism",
   "version": "1.0.2",
-  "displayName": "Optimismm",
+  "displayName": "Optimism",
   "displayTagline": "Ethereum L2 - Optimism",
   "selectCardTagline": "Ethereum, scaled. Built by the OP Collective",
   "execution": {
