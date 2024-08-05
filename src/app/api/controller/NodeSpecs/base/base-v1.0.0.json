@@ -1,6 +1,6 @@
 {
   "specId": "base",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "displayName": "Base",
   "selectCardTagline": "A secure and low-cost Ethereum Layer 2 built on the OP stack",
   "execution": {
@@ -9,7 +9,7 @@
       {
         "serviceId": "executionClient",
         "name": "Execution Client",
-        "nodeOptions": ["op-geth", "nethermind", "op-reth"],
+        "nodeOptions": ["op-geth", "op-nethermind", "op-reth"],
         "required": true,
         "requiresCommonJwtSecret": true
       },

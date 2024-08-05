@@ -27,6 +27,7 @@ import magiv1 from './NodeSpecs/magi/magi-v1.0.0.json';
 import opGethv1 from './NodeSpecs/op-geth/op-geth-v1.0.0.json';
 import opNodev1 from './NodeSpecs/op-node/op-node-v1.0.0.json';
 import opRethv1 from './NodeSpecs/op-reth/op-reth-v1.0.0.json';
+import opNethermindv1 from './NodeSpecs/op-nethermind/op-nethermind-v1.0.0.json';
 
 import hubblev1 from './NodeSpecs/hubble/hubble-v1.0.0.json';
 
@@ -52,6 +53,7 @@ export const specs = [
   opGethv1,
   opNodev1,
   opRethv1,
+  opNethermindv1,
   hildrv1,
   magiv1,
   hubblev1,

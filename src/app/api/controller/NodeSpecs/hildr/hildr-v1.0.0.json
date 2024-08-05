@@ -1,6 +1,6 @@
 {
   "specId": "hildr",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "displayName": "Hildr",
   "execution": {
     "executionTypes": ["docker"],
@@ -22,7 +22,7 @@
       }
     },
     "imageName": "ghcr.io/optimism-java/hildr",
-    "defaultImageTag": "latest-native"
+    "defaultImageTag": "latest"
   },
   "category": "L2/ConsensusClient",
   "minorityClient": true,
