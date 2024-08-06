@@ -1,6 +1,6 @@
 # controller-api
 
-This is currently deployed to api.nicenode.xyz. To test it, enter `https://api.nicenode.xyz/api/controllerLibrary`into a browser and see the results of a GET HTTP on `/controllerLibrary`.
+This is currently deployed to `api.nicenode.xyz`. To test it, enter `https://api.nicenode.xyz/api/controller`into a browser and see the results of a GET HTTP on `/controller`, or `https://api.nicenode.xyz/api/controller/geth` to get Geth's `controller`.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -12,7 +12,9 @@ First, run the development server:
 npm run dev
 ```
 
-Use `http://localhost:3000/api` as the local controller environment variable in NiceNode or for testing. Or open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Use `http://localhost:3000/api` as the local controller environment variable in NiceNode or for testing. Or open [http://localhost:3000/api/controller](http://localhost:3000/api/controller) or [http://localhost:3000/api/controllerPackage](http://localhost:3000/api/controllerPackage) with your browser to see the result.
+
+Example `http://localhost:3000/api/controller/besu` returns Besu's controller.
 
 To properly update a controller:
 1. Make the change
