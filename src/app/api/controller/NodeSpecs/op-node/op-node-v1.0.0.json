@@ -1,6 +1,6 @@
 {
   "specId": "op-node",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "displayName": "OP Node",
   "execution": {
     "executionTypes": ["docker"],
@@ -46,19 +46,28 @@
     }
   },
   "configTranslation": {
-    "network": {
-      "displayName": "Network",
+    "chainId": {
+      "displayName": "Chain ID (Network)",
+      "cliConfigPrefix": "--network ",
       "hideFromUserAfterStart": true,
       "uiControl": {
         "type": "select/single",
         "controlTranslations": [
           {
-            "value": "Mainnet",
-            "config": " --network mainnet"
+            "value": "10",
+            "config": "op-mainnet"
           },
           {
-            "value": "Sepolia",
-            "config": " --network sepolia"
+            "value": "11155420",
+            "config": "op-sepolia"
+          },
+          {
+            "value": "8453",
+            "config": "base-mainnet"
+          },
+          {
+            "value": "84532",
+            "config": "base-sepolia"
           }
         ]
       }
