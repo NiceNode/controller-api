@@ -1,6 +1,6 @@
 {
   "specId": "besu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "Besu",
   "execution": {
     "executionTypes": ["docker"],
@@ -90,7 +90,7 @@
         "controlTranslations": [
           {
             "value": "snap",
-            "config": "X_SNAP",
+            "config": "SNAP",
             "info": "~700GB / 6h"
           },
           {
