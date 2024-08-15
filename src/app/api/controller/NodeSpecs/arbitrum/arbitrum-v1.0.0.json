@@ -17,7 +17,7 @@
     ]
   },
   "category": "Ethereum/L2",
-  "rpcTranslation": "eth-l1",
+  "rpcTranslation": "eth-l2",
   "systemRequirements": {
     "documentationUrl": "https://docs.arbitrum.io/run-arbitrum-node/run-full-node#minimum-hardware-configuration",
     "cpu": {
