@@ -1,6 +1,6 @@
 {
   "specId": "arbitrum",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "Arbitrum One",
   "displayTagline": "Non-Validating Node",
   "selectCardTagline": "Welcome to the future of Ethereum",
