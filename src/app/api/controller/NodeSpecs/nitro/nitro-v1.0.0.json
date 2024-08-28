@@ -1,12 +1,12 @@
 {
   "specId": "nitro",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "displayName": "Arbitrum Nitro",
   "execution": {
     "executionTypes": ["docker"],
     "defaultExecutionType": "docker",
     "imageName": "docker.io/offchainlabs/nitro-node",
-    "defaultImageTag": "v3.1.0-7d1d84c",
+    "defaultImageTag": "v3.1.2-309340a",
     "input": {
       "defaultConfig": {
         "parentChainRpcUrl": "https://ethereum-rpc.publicnode.com",
