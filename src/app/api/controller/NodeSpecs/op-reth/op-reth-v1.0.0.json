@@ -25,9 +25,9 @@
     "imageName": "ghcr.io/paradigmxyz/op-reth",
     "defaultImageTag": "latest"
   },
-  "category": "L1/ExecutionClient",
+  "category": "L2/ExecutionClient",
   "minorityClient": true,
-  "rpcTranslation": "eth-l1",
+  "rpcTranslation": "eth-l2",
   "systemRequirements": {
     "documentationUrl": "https://paradigmxyz.github.io/reth/installation/installation.html#hardware-requirements",
     "cpu": {

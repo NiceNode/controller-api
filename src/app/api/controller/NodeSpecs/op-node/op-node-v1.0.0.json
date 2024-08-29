@@ -1,6 +1,6 @@
 {
   "specId": "op-node",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "displayName": "OP Node",
   "execution": {
     "executionTypes": ["docker"],
@@ -9,7 +9,7 @@
       "defaultConfig": {
         "l1": "https://ethereum-rpc.publicnode.com",
         "l1Beacon": "https://ethereum-beacon-api.publicnode.com",
-        "l2": "http://host.containers.internal:8553",
+        "l2executionEndpoint": "http://host.containers.internal",
         "l1TrustRpc": "Enabled",
         "httpPort": "8549",
         "p2pPorts": "9222"
@@ -118,13 +118,13 @@
       "defaultValue": "https://ethereum-beacon-api.publicnode.com",
       "infoDescription": "Provider with historical blob API enabled or a local node http://host.containers.internal:5052"
     },
-    "l2": {
+    "l2executionEndpoint": {
       "displayName": "Optimism RPC Endpoint (local node or provider)",
       "cliConfigPrefix": "--l2 ",
       "uiControl": {
         "type": "text"
       },
-      "defaultValue": "http://host.containers.internal:8553",
+      "defaultValue": "http://host.containers.internal",
       "addNodeFlow": "advanced",
       "infoDescription": "engine and eth namespace required",
       "documentation": "https://docs.optimism.io/builders/node-operators/configuration/consensus-config#l2"

@@ -1,6 +1,6 @@
 {
   "specId": "magi",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "displayName": "Magi",
   "displayTagLine": "An OP Stack rollup client written in Rust",
   "execution": {
@@ -10,9 +10,9 @@
       "defaultConfig": {
         "l1RpcUrl" : "https://ethereum-rpc.publicnode.com",
         "l1BeaconUrl": "https://ethereum-beacon-api.publicnode.com",
-        "l2RpcUrl": "http://host.containers.internal:8547",
-        "l2EngineUrl": "http://host.containers.internal:8553",
         "l1TrustRpc": "Enabled",
+        "l2RpcUrl": "http://host.containers.internal",
+        "l2executionEndpoint": "http://host.containers.internal",
         "httpPort": "8549",
         "p2pPorts": "9222"
       },
@@ -156,16 +156,16 @@
       "uiControl": {
         "type": "text"
       },
-      "defaultValue": "http://host.containers.internal:8547",
+      "defaultValue": "http://host.containers.internal",
       "addNodeFlow": "advanced"
     },
-    "l2EngineUrl": {
+    "l2executionEndpoint": {
       "displayName": "Layer 2 Engine Endpoint (local node)",
       "cliConfigPrefix": "--l2-engine-url ",
       "uiControl": {
         "type": "text"
       },
-      "defaultValue": "http://host.containers.internal:8553"
+      "defaultValue": "http://host.containers.internal"
     },
     "httpPort": {
       "displayName": "HTTP-RPC server listening port",

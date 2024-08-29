@@ -153,7 +153,8 @@
         ]
       },
       "defaultValue": "snap",
-      "documentation": "https://geth.ethereum.org/docs/faq#how-does-ethereum-syncing-work"
+      "documentation": "https://geth.ethereum.org/docs/faq#how-does-ethereum-syncing-work",
+      "hideFromUserAfterStart": true
     },
     "httpVirtualHosts": {
       "displayName": "Comma separated list of virtual hostnames from which to accept requests (server enforced). Accepts '*' wildcard. Default value (localhost)",
