@@ -119,7 +119,7 @@
       "infoDescription": "Comma separated list of virtual hostnames from which to accept authentication requests for engine api's (server enforced). Accepts '*' wildcard. Default value (localhost)"
     },
     "webSockets": {
-      "displayName": "rpc websocket connections (*BeaconNodes may require websocket connections)",
+      "displayName": "WebSocket JSON-RPC connections",
       "uiControl": {
         "type": "select/single",
         "controlTranslations": [
