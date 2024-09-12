@@ -1,6 +1,6 @@
 {
   "specId": "nitro",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "displayName": "Arbitrum Nitro",
   "execution": {
     "executionTypes": ["docker"],
@@ -118,7 +118,7 @@
       },
       "infoDescription": "Comma separated list of virtual hostnames from which to accept authentication requests for engine api's (server enforced). Accepts '*' wildcard. Default value (localhost)"
     },
-    "websockets": {
+    "webSockets": {
       "displayName": "rpc websocket connections (*BeaconNodes may require websocket connections)",
       "uiControl": {
         "type": "select/single",
@@ -132,7 +132,8 @@
           }
         ]
       },
-      "defaultValue": "Disabled"
+      "defaultValue": "Disabled",
+      "infoDescription": "Enables or disables the WebSocket JSON-RPC service. Beacon nodes may require websockets. The default is false."
     },
     "logLevel": {
       "displayName": "Log level",
