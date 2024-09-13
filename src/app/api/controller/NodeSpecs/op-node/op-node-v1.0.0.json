@@ -95,7 +95,7 @@
           }
         ]
       },
-      "defaultValue": "Disabled",
+      "defaultValue": "Enabled",
       "documentation": "https://docs.optimism.io/builders/node-operators/configuration/consensus-config#l2"
     },
     "l1": {

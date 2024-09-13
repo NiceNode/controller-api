@@ -1,5 +1,6 @@
 import arbitrumv1 from './NodeSpecs/arbitrum/arbitrum-v1.0.0.json';
 import basev1 from './NodeSpecs/base/base-v1.0.0.json';
+import soneiumv1 from './NodeSpecs/soneium/soneium-v1.0.0.json';
 // Node Packages
 import ethereumv1 from './NodeSpecs/ethereum/ethereum-v1.0.0.json';
 import farcasterv1 from './NodeSpecs/farcaster/farcaster-v1.0.0.json';
@@ -67,6 +68,7 @@ export const packageSpecs = [
   arbitrumv1,
   optimismv1,
   basev1,
+  soneiumv1,
   minecraftv1,
   homeAssistantv1,
 ];
