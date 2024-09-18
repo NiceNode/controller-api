@@ -1,6 +1,6 @@
 {
   "specId": "op-nethermind",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "OP Nethermind",
   "execution": {
     "executionTypes": ["docker"],
@@ -33,9 +33,9 @@
     },
     "execPath": "Nethermind.Runner.exe"
   },
-  "category": "L1/ExecutionClient",
+  "category": "L2/ExecutionClient",
   "minorityClient": true,
-  "rpcTranslation": "eth-l1",
+  "rpcTranslation": "eth-l2",
   "systemRequirements": {
     "documentationUrl": "https://docs.nethermind.io/nethermind/guides-and-helpers/validator-setup/eth2-validator#hardware-and-network-requirements",
     "cpu": {

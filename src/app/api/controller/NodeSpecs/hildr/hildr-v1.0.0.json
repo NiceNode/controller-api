@@ -1,6 +1,6 @@
 {
   "specId": "hildr",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "displayName": "Hildr",
   "execution": {
     "executionTypes": ["docker"],
@@ -10,8 +10,8 @@
         "l1": "https://ethereum-rpc.publicnode.com",
         "l1WebSocketUrl": "wss://ethereum-rpc.publicnode.com",
         "l1BeaconUrl": "https://ethereum-beacon-api.publicnode.com",
-        "l2RpcUrl": "http://host.containers.internal:8547",
-        "l2EngineUrl": "http://host.containers.internal:8553",
+        "l2RpcUrl": "http://host.containers.internal",
+        "l2executionEndpoint": "http://host.containers.internal",
         "httpPort": "8549",
         "logLevel": "Debug"
       },
@@ -133,17 +133,17 @@
       "uiControl": {
         "type": "text"
       },
-      "defaultValue": "http://host.containers.internal:8547",
+      "defaultValue": "http://host.containers.internal",
       "addNodeFlow": "advanced",
       "infoDescription": "engine and eth namespace required"
     },
-    "l2EngineUrl": {
+    "l2executionEndpoint": {
       "displayName": "Optimism Engine URL (local node)",
       "cliConfigPrefix": "--l2-engine-url ",
       "uiControl": {
         "type": "text"
       },
-      "defaultValue": "http://host.containers.internal:8553",
+      "defaultValue": "http://host.containers.internal",
       "addNodeFlow": "advanced",
       "infoDescription": "engine and eth namespace required"
     },

@@ -1,6 +1,6 @@
 {
   "specId": "op-erigon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "OP Erigon",
   "execution": {
     "executionTypes": ["docker"],
@@ -58,7 +58,7 @@
       "infoDescription": "[Required] op-erigon cannot execute state transition before the bedrock update. So preconfigured data file is required to run the node. It includes blocks and states of the pre-bedrock chain"
     },
     "http": {
-      "displayName": "rpc http connections (*NiceNode requires http connections)",
+      "displayName": "RPC HTTP connections",
       "uiControl": {
         "type": "select/single",
         "controlTranslations": [
@@ -72,10 +72,11 @@
         ]
       },
       "defaultValue": "Disabled",
+      "infoDescription": "NiceNode requires http connections",
       "documentation": "https://geth.ethereum.org/docs/rpc/server"
     },
     "webSockets": {
-      "displayName": "rpc websocket connections (*BeaconNodes may require websocket connections)",
+      "displayName": "WebSocket JSON-RPC connections",
       "uiControl": {
         "type": "select/single",
         "controlTranslations": [
@@ -89,7 +90,8 @@
         ]
       },
       "defaultValue": "Disabled",
-      "documentation": "https://geth.ethereum.org/docs/rpc/server#websocket-server"
+      "documentation": "https://geth.ethereum.org/docs/rpc/server#websocket-server",
+      "infoDescription": "Enables or disables the WebSocket JSON-RPC service. Beacon nodes may require websockets. The default is false."
     },
     "httpApis": {
       "displayName": "Enabled HTTP APIs",
@@ -128,39 +130,41 @@
       }
     },
     "httpCorsDomains": {
-      "displayName": "Change where the node accepts http connections (use comma separated urls)",
+      "displayName": "HTTP-RPC CORS domains",
       "cliConfigPrefix": "--http.corsdomain ",
       "uiControl": {
         "type": "text"
-      }
+      },
+      "infoDescription": "Change where the node accepts http connections (use comma separated urls)"
     },
     "syncMode": {
-      "displayName": "Node synchronization mode",
+      "displayName": "Execution Client Sync Mode",
       "infoDescription": "Blockchain sync mode (\"snap\", \"full\") (default: snap)",
       "category": "Syncronization",
-      "cliConfigPrefix": "--syncmode ",
       "uiControl": {
         "type": "select/single",
         "controlTranslations": [
           {
             "value": "snap",
-            "config": "snap"
+            "config": "--syncmode snap"
           },
           {
             "value": "full",
-            "config": "full"
+            "config": "--syncmode full"
           }
         ]
       },
       "defaultValue": "snap",
-      "documentation": "https://geth.ethereum.org/docs/faq#how-does-ethereum-syncing-work"
+      "documentation": "https://geth.ethereum.org/docs/faq#how-does-ethereum-syncing-work",
+      "hideFromUserAfterStart": true
     },
     "httpVirtualHosts": {
-      "displayName": "Comma separated list of virtual hostnames from which to accept requests (server enforced). Accepts '*' wildcard. Default value (localhost)",
+      "displayName": "Virtual hostnames list",
       "cliConfigPrefix": "--http.vhosts ",
       "uiControl": {
         "type": "text"
       },
+      "infoDescription": "Comma separated list of virtual hostnames from which to accept requests (server enforced). Accepts '*' wildcard. Default value (localhost)",
       "defaultValue": "localhost,host.containers.internal"
     },
     "httpAddress": {
@@ -200,36 +204,39 @@
       "documentation": "https://geth.ethereum.org/docs/rpc/server#websocket-server"
     },
     "maxPeerCount": {
-      "displayName": "Max Peer Count (set to low number to use less bandwidth)",
+      "displayName": "Max Peer Count",
       "cliConfigPrefix": "--maxpeers ",
       "defaultValue": "50",
       "uiControl": {
         "type": "text"
       },
+      "infoDescription": "Set to lower number to use less bandwidth",
       "documentation": "https://geth.ethereum.org/docs/interface/peer-to-peer#peer-limit"
     },
     "authVirtualHosts": {
-      "displayName": "Comma separated list of virtual hostnames from which to accept authentication requests for engine api's (server enforced). Accepts '*' wildcard. Default value (localhost)",
+      "displayName": "Engine RPC virtual hostnames list",
       "cliConfigPrefix": "--authrpc.vhosts ",
       "uiControl": {
         "type": "text"
       },
+      "infoDescription": "Comma separated list of virtual hostnames from which to accept authentication requests for engine api's (server enforced). Accepts '*' wildcard. Default value (localhost)",
       "defaultValue": "localhost,host.containers.internal"
     },
     "rollupSequencerHttpEndpoint": {
-      "displayName": "HTTP endpoint for the sequencer mempool (Ex. for base: https://mainnet-sequencer.base.org)",
-      "cliConfigPrefix": "--rollup.sequencerhttp ",
-      "uiControl": {
-        "type": "text"
-      }
-    },
-    "rollupHistoricalHttpEndpoint": {
-      "displayName": "HTTP endpoint for the historical data (OP mainnet only, eg. https://mainnet.optimism.io)",
+      "displayName": "HTTP endpoint for the sequencer mempool",
       "cliConfigPrefix": "--rollup.sequencerhttp ",
       "uiControl": {
         "type": "text"
       },
-      "infoDescription": "[New flag / Optional] The historical RPC endpoint. op-erigon queries historical execution data that op-erigon does not support to historical RPC—for example, pre-bedrock executions. For Optimism Sepolia Testnet, please set this value to the Legacy Geth endpoint. For more information about legacy geth, refer the Optimism's node operator guide."
+      "infoDescription": "Ex. for base: https://mainnet-sequencer.base.org"
+    },
+    "rollupHistoricalHttpEndpoint": {
+      "displayName": "HTTP endpoint for the historical data",
+      "cliConfigPrefix": "--rollup.historicalrpc ",
+      "uiControl": {
+        "type": "text"
+      },
+      "infoDescription": "[New flag / Optional] (OP mainnet only, eg. https://mainnet.optimism.io). The historical RPC endpoint. op-erigon queries historical execution data that op-erigon does not support to historical RPC—for example, pre-bedrock executions. For Optimism Sepolia Testnet, please set this value to the Legacy Geth endpoint. For more information about legacy geth, refer the Optimism's node operator guide."
     }
   },
   "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/op.png"

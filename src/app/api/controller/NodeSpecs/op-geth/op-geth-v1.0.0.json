@@ -1,6 +1,6 @@
 {
   "specId": "op-geth",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "displayName": "OP Geth",
   "displayTaglin": "Execution Client - OP Chains",
   "execution": {
@@ -16,7 +16,8 @@
         "httpCorsDomains": "http://localhost",
         "webSockets": "Disabled",
         "httpVirtualHosts": "localhost,host.containers.internal",
-        "authVirtualHosts": "localhost,host.containers.internal"
+        "authVirtualHosts": "localhost,host.containers.internal",
+        "syncMode": "snap"
       },
       "docker": {
         "containerVolumePath": "/root/.ethereum",
@@ -75,7 +76,7 @@
     },
     "chainId": {
       "displayName": "Chain ID (Network)",
-      "cliConfigPrefix": "--op-network=",
+      "cliConfigPrefix": "--op-network ",
       "hideFromUserAfterStart": true,
       "uiControl": {
         "type": "select/single",
@@ -101,7 +102,7 @@
       "documentation": "https://docs.optimism.io/builders/node-operators/management/configuration#op-network-betaop-network"
     },
     "http": {
-      "displayName": "rpc http connections (*NiceNode requires http connections)",
+      "displayName": "RPC HTTP connections",
       "uiControl": {
         "type": "select/single",
         "controlTranslations": [
@@ -115,10 +116,11 @@
         ]
       },
       "defaultValue": "Disabled",
+      "infoDescription": "NiceNode requires http connections",
       "documentation": "https://geth.ethereum.org/docs/rpc/server"
     },
     "webSockets": {
-      "displayName": "rpc websocket connections (*BeaconNodes may require websocket connections)",
+      "displayName": "WebSocket JSON-RPC connections",
       "uiControl": {
         "type": "select/single",
         "controlTranslations": [
@@ -132,6 +134,7 @@
         ]
       },
       "defaultValue": "Disabled",
+      "infoDescription": "Enables or disables the WebSocket JSON-RPC service. Beacon nodes may require websockets. The default is false.",
       "documentation": "https://geth.ethereum.org/docs/rpc/server#websocket-server"
     },
     "p2pPorts": {
@@ -180,39 +183,41 @@
       }
     },
     "httpCorsDomains": {
-      "displayName": "Change where the node accepts http connections (use comma separated urls)",
+      "displayName": "HTTP-RPC CORS domains",
       "cliConfigPrefix": "--http.corsdomain ",
       "uiControl": {
         "type": "text"
-      }
+      },
+      "infoDescription": "Change where the node accepts http connections (use comma separated urls)"
     },
     "syncMode": {
-      "displayName": "Node synchronization mode",
+      "displayName": "Execution Client Sync Mode",
       "infoDescription": "Blockchain sync mode (\"snap\", \"full\") (default: snap)",
       "category": "Syncronization",
-      "cliConfigPrefix": "--syncmode ",
       "uiControl": {
         "type": "select/single",
         "controlTranslations": [
           {
             "value": "snap",
-            "config": "snap"
+            "config": "--syncmode snap"
           },
           {
             "value": "full",
-            "config": "full"
+            "config": "--syncmode full"
           }
         ]
       },
       "defaultValue": "snap",
-      "documentation": "https://geth.ethereum.org/docs/faq#how-does-ethereum-syncing-work"
+      "documentation": "https://geth.ethereum.org/docs/faq#how-does-ethereum-syncing-work",
+      "hideFromUserAfterStart": true
     },
     "httpVirtualHosts": {
-      "displayName": "Comma separated list of virtual hostnames from which to accept requests (server enforced). Accepts '*' wildcard. Default value (localhost)",
+      "displayName": "Virtual hostnames list",
       "cliConfigPrefix": "--http.vhosts ",
       "uiControl": {
         "type": "text"
       },
+      "infoDescription": "Comma separated list of virtual hostnames from which to accept requests (server enforced). Accepts '*' wildcard. Default value (localhost)",
       "defaultValue": "localhost,host.containers.internal"
     },
     "httpAddress": {
@@ -252,28 +257,31 @@
       "documentation": "https://geth.ethereum.org/docs/rpc/server#websocket-server"
     },
     "maxPeerCount": {
-      "displayName": "Max Peer Count (set to low number to use less bandwidth)",
+      "displayName": "Max Peer Count",
       "cliConfigPrefix": "--maxpeers ",
       "defaultValue": "50",
       "uiControl": {
         "type": "text"
       },
-      "documentation": "https://geth.ethereum.org/docs/interface/peer-to-peer#peer-limit"
+      "documentation": "https://geth.ethereum.org/docs/interface/peer-to-peer#peer-limit",
+      "infoDescription": "Set to lower number to use less bandwidth"
     },
     "authVirtualHosts": {
-      "displayName": "Comma separated list of virtual hostnames from which to accept authentication requests for engine api's (server enforced). Accepts '*' wildcard. Default value (localhost)",
+      "displayName": "Engine RPC virtual hostnames list",
       "cliConfigPrefix": "--authrpc.vhosts ",
       "uiControl": {
         "type": "text"
       },
+      "infoDescription": "Comma separated list of virtual hostnames from which to accept authentication requests for engine api's (server enforced). Accepts '*' wildcard. Default value (localhost)",
       "defaultValue": "localhost,host.containers.internal"
     },
     "rollupSequencerHttpEndpoint": {
-      "displayName": "HTTP endpoint for the sequencer mempool (Ex. for base: https://mainnet-sequencer.base.org)",
+      "displayName": "HTTP endpoint for the sequencer mempool",
       "cliConfigPrefix": "--rollup.sequencerhttp ",
       "uiControl": {
         "type": "text"
-      }
+      },
+      "infoDescription": "Ex. for base: https://mainnet-sequencer.base.org"
     }
   },
   "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/op.png",
