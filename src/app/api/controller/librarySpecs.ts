@@ -6,6 +6,7 @@ import farcasterv1 from './NodeSpecs/farcaster/farcaster-v1.0.0.json';
 import homeAssistantv1 from './NodeSpecs/home-assistant/home-assistant-v1.0.0.json';
 import minecraftv1 from './NodeSpecs/minecraft/minecraft-v1.0.0.json';
 import optimismv1 from './NodeSpecs/optimism/optimism-v1.0.0.json';
+import plexv1 from './NodeSpecs/plex/plex-v1.0.0.json';
 
 // Node Services
 import besuv1 from './NodeSpecs/besu/besu-v1.0.0.json';
@@ -35,6 +36,7 @@ import nitrov1 from './NodeSpecs/nitro/nitro-v1.0.0.json';
 
 import homeAssistantServicev1 from './NodeSpecs/home-assistant-service/home-assistant-service-v1.0.0.json';
 import itzgMinecraftv1 from './NodeSpecs/itzg-minecraft/itzg-minecraft-v1.0.0.json';
+import plexMediaServerv1 from './NodeSpecs/plex-media-server/plex-media-server-v1.0.0.json';
 
 export const specs = [
   besuv1,
@@ -59,6 +61,7 @@ export const specs = [
   hubblev1,
   itzgMinecraftv1,
   homeAssistantServicev1,
+  plexMediaServerv1,
 ];
 
 export const packageSpecs = [
@@ -69,4 +72,5 @@ export const packageSpecs = [
   basev1,
   minecraftv1,
   homeAssistantv1,
+  plexv1,
 ];
