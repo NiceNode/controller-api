@@ -6,7 +6,7 @@
     "executionTypes": ["docker"],
     "defaultExecutionType": "docker",
     "imageName": "docker.io/offchainlabs/nitro-node",
-    "defaultImageTag": "v3.2.0-f847be0",
+    "defaultImageTag": "v3.2.1-d81324d",
     "input": {
       "defaultConfig": {
         "parentChainRpcUrl": "https://ethereum-rpc.publicnode.com",
