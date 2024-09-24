@@ -1,0 +1,46 @@
+{
+  "specId": "plex",
+  "version": "1.0.1",
+  "displayName": "Plex",
+  "displayTagline": "Plex is the key to personal media bliss",
+  "selectCardTagline": "Control your media",
+  "execution": {
+    "executionTypes": ["nodePackage"],
+    "defaultExecutionType": "nodePackage",
+    "services": [
+      {
+        "serviceId": "mediaServer",
+        "name": "Plex Media Server",
+        "nodeOptions": ["plex-media-server"],
+        "required": true
+      }
+    ]
+  },
+  "category": "utility/media",
+  "rpcTranslation": "plex",
+  "systemRequirements": {
+    "cpu": {
+      "cores": 1
+    },
+    "memory": {
+      "minSizeGBs": 4
+    },
+    "storage": {
+      "minSizeGBs": 1
+    },
+    "docker": {
+      "required": true
+    }
+  },
+  "configTranslation": {},
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/plex.png",
+  "addNodeDescription": "Control your media destiny! Organize, beautify, stream, and share your personal collection of movies, TV, music, and photos anywhere, on all your devices.",
+  "description": "Plex is the key to personal media bliss. Once you download our free and easy-to-use software where you store your files (usually a computer or external hard drive), it takes care of the rest. Plex magically scans and organizes your files, automatically sorting your media beautifully and intuitively in your Plex library. Once you've downloaded our app on your favorite devices, you'll be up and streaming everything in minutes.",
+  "resources": [
+    {
+      "label": "Plex - Your media",
+      "value": "plex.tv",
+      "link": "https://plex.tv/your-media/"
+    }
+  ]
+}

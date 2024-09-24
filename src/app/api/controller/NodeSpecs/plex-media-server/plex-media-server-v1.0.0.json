@@ -1,0 +1,64 @@
+{
+  "specId": "plex-media-server",
+  "version": "1.0.0",
+  "displayName": "Plex Media Server",
+  "execution": {
+    "executionTypes": ["docker"],
+    "defaultExecutionType": "docker",
+    "input": {
+      "defaultConfig": {},
+      "docker": {
+        "containerVolumePath": "/config",
+        "raw": "-e VERSION=docker -p 32400:32400",
+        "forcedRawNodeInput": ""
+      }
+    },
+    "imageName": "docker.io/linuxserver/plex",
+    "defaultImageTag": "latest"
+  },
+  "category": "utility/media",
+  "rpcTranslation": "plex",
+  "systemRequirements": {
+    "cpu": {
+      "cores": 1
+    },
+    "memory": {
+      "minSizeGBs": 4
+    },
+    "storage": {
+      "minSizeGBs": 1
+    },
+    "docker": {
+      "required": true
+    }
+  },
+  "configTranslation": {
+    "dataDir": {
+      "displayName": "Media folder location",
+      "cliConfigPrefix": "",
+      "defaultValue": "",
+      "uiControl": {
+        "type": "filePath"
+      },
+      "infoDescription": "Data directory for all movies, tv shows, videos, photos, etc."
+    },
+    "plexClaimToken": {
+      "displayName": "Plex claim code",
+      "cliConfigPrefix": "PLEX_CLAIM=",
+      "uiControl": {
+        "type": "text"
+      },
+      "isEnvVariable": true,
+      "addNodeFlow": "required",
+      "infoDescription": "Sign in at https://www.plex.tv/claim/, get a code, and paste it here",
+      "defaultValue": "",
+      "documentation": "https://www.plex.tv/claim/"
+    }
+  },
+  "documentation": {
+    "default": "https://www.plex.tv/your-media/",
+    "docker": "https://github.com/plexinc/pms-docker",
+    "releaseNotesUrl": "https://forums.plex.tv/t/plex-media-server/30447/645"
+  },
+  "iconUrl": "https://pub-9f2dc808c3d748eabde036c3d3465ee6.r2.dev/plex.png"
+}
