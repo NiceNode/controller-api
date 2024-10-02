@@ -1,6 +1,6 @@
 {
   "specId": "besu",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "Besu",
   "execution": {
     "executionTypes": ["docker"],
@@ -404,7 +404,7 @@
     },
     "maxPeerCount": {
       "displayName": "Max Peer Count",
-      "cliConfigPrefix": ["--max-peers=", "--Xp2p-peer-lower-bound="],
+      "cliConfigPrefix": "--max-peers=",
       "defaultValue": "25",
       "uiControl": {
         "type": "text"
