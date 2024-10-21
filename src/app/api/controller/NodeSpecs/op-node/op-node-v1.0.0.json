@@ -1,6 +1,6 @@
 {
   "specId": "op-node",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "displayName": "OP Node",
   "execution": {
     "executionTypes": ["docker"],
@@ -21,7 +21,7 @@
       }
     },
     "imageName": "us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node",
-    "defaultImageTag": "v1.9.2"
+    "defaultImageTag": "v1.9.4"
   },
   "category": "L2/ConsensusClient",
   "rpcTranslation": "eth-l2-consensus",
