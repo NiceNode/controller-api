@@ -1,12 +1,12 @@
 {
   "specId": "erigon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "Erigon",
   "execution": {
     "executionTypes": ["docker"],
     "defaultExecutionType": "docker",
     "imageName": "docker.io/thorax/erigon",
-    "defaultImageTag": "2.59.3",
+    "defaultImageTag": "2.61.1",
     "input": {
       "defaultConfig": {
         "http": "Enabled",
