@@ -1,6 +1,6 @@
 {
   "specId": "lighthouse-beacon",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "displayName": "Lighthouse",
   "execution": {
     "executionTypes": ["docker", "binary"],
@@ -80,11 +80,11 @@
           },
           {
             "value": "Holesky",
-            "config": "holesky"
+            "config": "holesky --checkpoint-sync-url https://holesky.beaconstate.info"
           },
           {
             "value": "Sepolia",
-            "config": "sepolia"
+            "config": "sepolia --checkpoint-sync-url https://checkpoint-sync.sepolia.ethpandaops.io"
           }
         ]
       }
