@@ -1,6 +1,6 @@
 {
   "specId": "prysm-beacon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "Prysm",
   "execution": {
     "executionTypes": ["docker"],
@@ -68,11 +68,11 @@
           },
           {
             "value": "Holesky",
-            "config": "--holesky"
+            "config": "--holesky --checkpoint-sync-url=https://holesky.beaconstate.ethstaker.cc/"
           },
           {
             "value": "Sepolia",
-            "config": "--sepolia"
+            "config": "--sepolia --checkpoint-sync-url=https://sepolia.beaconstate.info"
           }
         ]
       }
