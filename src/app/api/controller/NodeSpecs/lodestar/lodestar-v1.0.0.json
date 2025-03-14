@@ -68,11 +68,11 @@
           },
           {
             "value": "Holesky",
-            "config": "holesky"
+            "config": "holesky --checkpointSyncUrl https://beaconstate-holesky.chainsafe.io"
           },
           {
             "value": "Sepolia",
-            "config": "sepolia"
+            "config": "sepolia --checkpointSyncUrl https://beaconstate-sepolia.chainsafe.io"
           }
         ]
       }
